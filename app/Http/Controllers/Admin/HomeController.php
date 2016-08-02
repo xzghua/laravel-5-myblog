@@ -17,7 +17,6 @@ class HomeController extends Controller
     public function index()
     {
         //
-        \Symfony\Component\Debug\Tests\FatalErrorHandler\test_namespaced_function();
     }
 
     /**
