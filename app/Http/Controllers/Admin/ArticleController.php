@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         //
-        return view('Admin.index');
+        return view('Admin.Article.articleList');
     }
 
     /**
@@ -28,7 +28,6 @@ class HomeController extends Controller
     public function create()
     {
         //
-        echo 456;
     }
 
     /**

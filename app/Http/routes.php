@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('home','Admin\HomeController');
+Route::resource('article','Admin\ArticleController');
