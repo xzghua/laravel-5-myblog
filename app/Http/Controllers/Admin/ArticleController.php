@@ -19,7 +19,8 @@ class ArticleController extends Controller
     {
         //
 
-
+        $a = Article::find(1)->getTags()->get()->toArray();
+        dd($a);
 
 
         return view('Admin.Article.articleList');

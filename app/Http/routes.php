@@ -17,3 +17,14 @@ Route::get('/', function () {
 
 Route::resource('home','Admin\HomeController');
 Route::resource('article','Admin\ArticleController');
+
+//登陆认证
+Route::post('login', 'Auth\AuthController@postLogin');
+Route::get('login', 'Auth\AuthController@getLogin');
+
+Route::get('logout', 'Auth\AuthController@getLogout');
+
+
+//注册
+Route::get('register', 'Auth\AuthController@getRegister');
+Route::post('register', 'Auth\AuthController@postRegister');
