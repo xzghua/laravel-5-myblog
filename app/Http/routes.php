@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('home','Admin\HomeController');
 Route::resource('article','Admin\ArticleController');
+Route::resource('category','Admin\CategoryController');
+Route::resource('tag','Admin\TagController');
 
 //登陆认证
 Route::post('login', 'Auth\AuthController@postLogin');

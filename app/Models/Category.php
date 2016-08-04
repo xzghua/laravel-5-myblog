@@ -28,4 +28,28 @@ class Category extends Model
         'parent_id',
     ];
 
+    public function getAllCate()
+    {
+        $all = self::all()->toArray();
+
+        $return = $this->tree($all);
+
+        return $return;
+
+    }
+
+    public function tree($data,$newArr = [])
+    {
+        foreach ($data as $key => $value) {
+            $checkChild = self::select('cate_name')->find($value->id);
+
+            if (empty($checkChild)) return false;
+
+            $newArr[] = $value;
+            unset($data[$key]);
+
+            return $this->tree($data,$newArr);
+        }
+    }
+
 }

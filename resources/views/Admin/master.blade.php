@@ -181,6 +181,37 @@
             <div class="side-bar">
                 <ul class="topnav menu-left-nest">
                     <li>
+                        <a class="tooltip-tip ajax-load" href="#" title="写文章">
+                            <i class="icon-document-edit"></i>
+                            <span>文章</span>
+
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="/article" title="Articles List"><i class="entypo-doc-text"></i><span>文章列表</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="blog-detail.html" title="Blog Detail"><i class="entypo-newspaper"></i><span>写文章</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="topnav menu-left-nest">
+                    <li>
+                        <a class="tooltip-tip" href="#" title="分类管理">
+                            <i class="icon-document-new"></i>
+                            <span>分类管理</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="/category" title="分类列表"><i class="icon-media-record"></i><span>分类列表</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="topnav menu-left-nest">
+                    <li>
                         <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
 
                             <span class="widget-menu"></span>
@@ -235,6 +266,7 @@
                 </ul>
 
                 <ul class="topnav menu-left-nest">
+
                     <li>
                         <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
 
