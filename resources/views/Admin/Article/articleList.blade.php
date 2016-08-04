@@ -23,32 +23,25 @@
         </tr>
         </thead>
         <tbody>
+        @foreach($article['data'] as $item)
+            <tr class="">
+                <td>{{$item['id']}}</td>
+                <td>{{$item['title']}}</td>
+                <td>{{$item['categories']}}</td>
+                <td>{{$item['views']}}</td>
+                <td>{{$item['created_at']}}</td>
+                <td>{{$item['author']}}</td>
+                <td>
+                    <a href="#clear" style="margin-left:10px;" class=" btn btn-info " title="文章修改"><span class="entypo-pencil"></span>&nbsp;&nbsp;修改</a>
+                    <a href="#clear" style="margin-left:10px;" class=" btn btn-danger " title="文章删除"> <span class="entypo-trash"></span>&nbsp;&nbsp;删除</a>
+                </td>
+            </tr>
+        @endforeach
 
-        <tr class="">
-            <td>1</td>
-            <td>3.375%</td>
-            <td>$123.12</td>
-            <td>1.125</td>
-            <td>4,000</td>
-            <td>Potato</td>
-            <td>
-                <a href="#clear" style="margin-left:10px;" class=" btn btn-info clear-filter" title="clear filter">修改</a>
-                <a href="#clear" style="margin-left:10px;" class=" btn btn-danger clear-filter" title="clear filter">删除</a>
-            </td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2.750%</td>
-            <td>$345.23</td>
-            <td>5</td>
-            <td>180</td>
-            <td>Spaceship</td>
-            <td>Skippy</td>
-        </tr>
 
         </tbody>
     </table>
-
+    {!! $paginate->render() !!}
 @endsection
 
 @section('js')

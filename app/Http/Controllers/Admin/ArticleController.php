@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 
 class ArticleController extends Controller
 {
@@ -18,12 +17,35 @@ class ArticleController extends Controller
     public function index()
     {
         //
+        $articlePag = Article::orderBy('created_at','desc')
+            ->with('getAuthor')
+            ->with('getTags')
+            ->with('getCategories')
+            ->with('getViews')
+            ->paginate(20);
 
-        $a = Article::find(1)->getTags()->get()->toArray();
-        dd($a);
+        $allData = $articlePag->toArray();
 
+        foreach ($allData['data'] as $key => $item) {
+            $allData['data'][$key]['author'] = $item['get_author']['name'];
+            $allData['data'][$key]['views']  = $item['get_views']['view_num'];
+            if (!empty($item['get_tags'])) {
+                $allData['data'][$key]['tags'] = implode(',',array_column($item['get_tags'], 'tag_name'));
+            } else {
+                $allData['data'][$key]['tags'] = '';
+            }
 
-        return view('Admin.Article.articleList');
+            if (!empty($item['get_categories'])) {
+                $allData['data'][$key]['categories'] = implode(',',array_column($item['get_categories'], 'cate_name'));
+            } else {
+                $allData['data'][$key]['categories'] = '';
+            }
+        }
+
+        $data['paginate'] = $articlePag;
+        $data['article'] = $allData;
+
+        return view('Admin.Article.articleList',$data);
     }
 
     /**

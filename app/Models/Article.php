@@ -10,7 +10,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-
 class Article extends Model
 {
 
@@ -43,6 +42,16 @@ class Article extends Model
         return $this->belongsTo('App\User','user_id','id');
     }
 
+    /**
+     * 文章对应的浏览数
+     * @date 2016年08月04日17:05:06
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function getViews()
+    {
+        return $this->hasOne('App\Models\View','art_id');
+    }
+
 
     /**
      * 文章对应的分类
@@ -55,6 +64,30 @@ class Article extends Model
     }
 
     /**
+     * @date 2016年08月04日14:26:33
+     * @param $cateId
+     */
+    public function attachCate($cateId)
+    {
+        if (is_array($cateId)) {
+            foreach ($cateId as $item) {
+                $this->cate($item);
+            }
+        }
+    }
+
+    /**
+     * @date 2016年08月04日14:26:26
+     * @param $cateId
+     */
+    public function cate($cateId)
+    {
+        return $this->getCategories()->attach($cateId);
+    }
+
+
+
+    /**
      * 文章对应的标签
      * @date 2016年08月04日13:41:13
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -64,4 +97,25 @@ class Article extends Model
         return $this->belongsToMany('App\Models\Tag','iphpt_tags','art_id','tag_id');
     }
 
+    /**
+     * @date 2016年08月04日14:26:19
+     * @param $tagId
+     */
+    public function attachTag($tagId)
+    {
+        if (is_array($tagId)) {
+            foreach ($tagId as $item) {
+                $this->tag($item);
+            }
+        }
+    }
+
+    /**
+     * @date 2016年08月04日14:26:11
+     * @param $tagId
+     */
+    public function tag($tagId)
+    {
+        return $this->getTags()->attach($tagId);
+    }
 }
