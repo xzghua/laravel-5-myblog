@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    Reminder::success('Hi! this is Reminder', 'Hello', ["positionClass" => "toast-bottom-right"]);
     return view('welcome');
 });
 

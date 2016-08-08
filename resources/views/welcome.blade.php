@@ -4,7 +4,7 @@
         <title>Laravel</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="/Admin/assets/css/toastr/toastr.min.css">
         <style>
             html, body {
                 height: 100%;
@@ -39,7 +39,12 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="/Admin/assets/js/jquery.js"></script>
+    <script src="/Admin/assets/js/toastr/toastr.min.js"></script>
+    {!! reminder()->message() !!}
 </html>
+

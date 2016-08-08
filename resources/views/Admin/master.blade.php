@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/Admin/assets/css/media.css">
     {{--<link rel="stylesheet" href="Admin/assets/css/social.css">--}}
     <link rel="stylesheet" href="/Admin/assets/css/mail.css">
+    <link rel="stylesheet" href="/Admin/assets/css/toastr/toastr.min.css">
 
 @yield('css')
 
@@ -581,6 +582,7 @@
 <script type="text/javascript" src="/Admin/assets/js/load.js"></script>
 <script type="text/javascript" src="/Admin/assets/js/main.js"></script>
 <script src="/Admin/assets/js/flatvideo/jquery.fitvids.js"></script>
+<script src="/Admin/assets/js/toastr/toastr.min.js"></script>
 
 @yield('js')
 
@@ -590,6 +592,23 @@
     // Custom selector and No-Double-Wrapping Prevention Test
     $(".blog-list-nest").fitVids();
     // Custom selector and No-Double-Wrapping Prevention Test
+
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "onclick": null,
+        "showDuration": "400",
+        "hideDuration": "1000",
+        "timeOut": "7000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
 </script>
 
 

@@ -12,6 +12,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 
+    const CREATE_CATEGORY_ERROR = '100000002';
+    const CATEGORY_ID_NOT_EXIST = '100000001';
+
+
     /**
      * 关联到模型的数据表
      *

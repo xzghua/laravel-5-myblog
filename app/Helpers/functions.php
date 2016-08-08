@@ -24,3 +24,27 @@ if (!function_exists('changeHumpToUnderLine')) {
         return $underLineArr;
     }
 }
+
+if (!function_exists('getToastParams')) {
+    /**
+     * 获得toastr弹窗插件的参数
+     * @date 2016年08月08日18:56:41
+     * @return array
+     */
+    function getToastParams()
+    {
+        return [
+            'positionClass'     => "toast-top-right",
+            'closeButton'       => 'true',
+            "progressBar"       => 'false',
+            "showDuration"      => "400",
+            "hideDuration"      => "1000",
+            "timeOut"           => "7000",
+            "extendedTimeOut"   => "1000",
+            "showEasing"        => "swing",
+            "hideEasing"        => "linear",
+            "showMethod"        => "fadeIn",
+            "hideMethod"        => "fadeOut"
+        ];
+    }
+}
