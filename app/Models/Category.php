@@ -12,8 +12,14 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
 
-    const CREATE_CATEGORY_ERROR = '100000002';
+    const CATEGORY_CREATE_ERROR = '100000002';
     const CATEGORY_ID_NOT_EXIST = '100000001';
+    const CATEGORY_CREATE_SUCCESS = '100000003';
+    const CATEGORY_UPDATE_SUCCESS = '100000004';
+    const CATEGORY_UPDATE_ERROR = '100000005';
+    const CATEGORY_UPDATE_NOT_ALLOWED_TO_BE_MYSELF = '100000006';
+    const CATEGORY_DELETE_SUCCESS = '100000007';
+    const CATEGORY_DELETE_ERROR = '100000008';
 
 
     /**
@@ -47,7 +53,6 @@ class Category extends Model
     {
         $cate = self::all();
         $getTreeArr =  self::tree($cate);
-
         foreach ($getTreeArr as $key => $value) {
             $getTreeArr[$key]->newHtml = $value->html.$value->cate_name;
         }
@@ -79,6 +84,46 @@ class Category extends Model
             }
         }
         return $data;
+    }
+
+    /**
+     * 获得一组下的所有分类 一连串的
+     * @date 2016年08月08日22:33:21
+     * @return array
+     */
+    public static function getSimilarToArr()
+    {
+        $cate = self::all();
+        $getTreeArr =  self::tree($cate);
+        $similarArr = [];
+        $i = 0;
+        foreach ($getTreeArr as $value) {
+            if ($value->parent_id == '0') $i++;
+            if (empty($similarArr[$i])) $similarArr[$i] = [];
+            array_push($similarArr[$i],$value->id);
+        }
+        return $similarArr;
+    }
+
+    /**
+     * 获得某个ID下的所有子分类
+     * @date 2016年08月08日22:34:26
+     * @param $id
+     * @return bool|mixed
+     */
+    public static function getChildIdsOfMyself($id)
+    {
+        $similarArr = self::getSimilarToArr();
+
+        foreach ($similarArr as $key => $value) {
+            if (in_array($id,$value)) {
+                foreach ( $value as $k => $v) {
+                    if ($v == $id) return $similarArr[$key];
+                    unset($similarArr[$key][$k]);
+                }
+            }
+        }
+        return false;
     }
 
 }

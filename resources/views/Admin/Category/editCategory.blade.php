@@ -15,14 +15,15 @@
     <div class="body-nest" id="element">
 
         <div class="panel-body">
-            <form method="post" action="/category" class="form-horizontal bucket-form createForm">
+            <form method="POST" action="/category/{{$cate['id']}}" class="form-horizontal bucket-form createForm">
                 {!! csrf_field() !!}
+                <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="category">上级分类</label>
                     <div class="col-sm-6">
                         <select id="category" name="parentId" class="form-control parentId">
                             @foreach($category as $item)
-                                <option value="{{$item['id']}}" @if ($cate['id'] == $item['id']) checked @endif> {{$item['newHtml']}}</option>
+                                <option value="{{$item['id']}}" @if ($cate['parent_id'] == $item['id']) selected @endif> {{$item['newHtml']}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -62,7 +63,7 @@
                     <label class="col-sm-3 control-label"></label>
                     <div class="col-sm-6">
                         <button class="btn" type="submit">
-                            <span class="fontawesome-save"></span>&nbsp;&nbsp;创建</button>
+                            <span class="fontawesome-save"></span>&nbsp;&nbsp;修改</button>
                     </div>
                 </div>
 
@@ -77,5 +78,5 @@
 @section('js')
     <script type="text/javascript" src="/Admin/assets/js/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/Admin/admin.createCategory.js"></script>
-
+    {!! reminder()->message() !!}
 @endsection

@@ -6,8 +6,6 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
-use Rry\Reminder\Reminder;
 
 class CategoryController extends Controller
 {
@@ -50,10 +48,11 @@ class CategoryController extends Controller
         Log::info('route is '.$request->url().',the data is '.json_encode($request->all()));
         try {
             if (Category::create($data)) {
-                reminder()->success(config("code.".Category::CREATE_CATEGORY_ERROR),'创建失败');
+                reminder()->success(config("code.".Category::CATEGORY_CREATE_SUCCESS),'创建成功');
                 return redirect()->route('category.index');
             }
         } catch (\Exception $e) {
+            reminder()->error(config("code.".Category::CATEGORY_CREATE_ERROR),'创建失败');
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
     }
@@ -105,7 +104,24 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
-        dd($id);
+        $data = changeHumpToUnderLine($request->all());
+        Log::info('route is '.$request->url().',the data is '.json_encode($request->all()));
+        if (in_array($data['parent_id'],Category::getChildIdsOfMyself($id))) {
+            reminder()->error(config("code.".Category::CATEGORY_UPDATE_NOT_ALLOWED_TO_BE_MYSELF),'更新失败');
+            return redirect()->back();
+        }
+
+        unset($data['_token']);
+        unset($data['_method']);
+        try {
+            if (Category::where('id',$id)->update($data)) {
+                reminder()->success(config("code.".Category::CATEGORY_UPDATE_SUCCESS),'更新成功');
+                return redirect()->route('category.index');
+            }
+        } catch (\Exception $e) {
+            reminder()->error(config("code.".Category::CATEGORY_UPDATE_ERROR),'更新失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
     }
 
     /**
@@ -117,5 +133,18 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            if (count(Category::getChildIdsOfMyself($id)) == 1 && Category::destroy($id)) {
+                reminder()->success(config("code.".Category::CATEGORY_DELETE_SUCCESS),'删除成功');
+                return redirect()->route('category.index');
+            } else {
+                reminder()->error(config("code.".Category::CATEGORY_DELETE_ERROR),'操作失败');
+                return redirect()->route('category.index');
+            }
+
+        } catch (\Exception $e) {
+            reminder()->error(config("code.".Category::CATEGORY_DELETE_ERROR),'操作失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
     }
 }

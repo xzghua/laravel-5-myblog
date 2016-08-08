@@ -26,8 +26,13 @@
                 <td>{{$item['newHtml']}}</td>
                 <td>{{$item['created_at']}}</td>
                 <td>
-                    <a href="/category/{{$item['id']}}" style="margin-left:10px;"  class=" btn btn-info " title="分类修改"><span class="entypo-pencil"></span>&nbsp;&nbsp;修改</a>
-                    <a href="#" style="margin-left:10px;" class=" btn btn-danger " data-toggle="modal" data-target="#myModal" title="分类删除"> <span class="entypo-trash"></span>&nbsp;&nbsp;删除</a>
+                    <form action="/category/{{$item['id']}}" method="post">
+                        <a href="/category/{{$item['id']}}" style="margin-left:10px;"  class=" btn btn-info " title="分类修改"><span class="entypo-pencil"></span>&nbsp;&nbsp;修改</a>
+
+                        {!! csrf_field() !!}
+                        <input type="hidden" name="_method" value="delete">
+                        <button  style="margin-left:10px;" class=" btn btn-danger " title="分类删除"> <span class="entypo-trash"></span>&nbsp;&nbsp;删除</button>
+                    </form>
                 </td>
                 </tr>
             @endforeach
