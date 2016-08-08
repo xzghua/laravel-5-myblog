@@ -145,6 +145,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //toast 提示包,网上down的,https://github.com/RryLee/laravel-reminder
+        Rry\Reminder\ReminderServiceProvider::class,
     ],
 
     /*
@@ -193,6 +195,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        'Reminder'  => Rry\Reminder\ReminderFacade::class,
     ],
 
 ];

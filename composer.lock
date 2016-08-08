@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55e0189572197de0b563540cd8aae6d3",
-    "content-hash": "5bd58fd976f1ee3e9611bc37c006ec46",
+    "hash": "8dfa05768412b672184658599922ee12",
+    "content-hash": "a5ee0f6a56edb3ae43ffa1086e7b360b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -951,6 +951,45 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "rry/reminder",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RryLee/laravel-reminder.git",
+                "reference": "793339b14bda329a413b4c929f70532d2e68f0a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RryLee/laravel-reminder/zipball/793339b14bda329a413b4c929f70532d2e68f0a7",
+                "reference": "793339b14bda329a413b4c929f70532d2e68f0a7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rry\\Reminder\\": "src/"
+                },
+                "files": [
+                    "src/helper.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "RryLee",
+                    "email": "rrylee1994@gmail.com"
+                }
+            ],
+            "description": "A awesome message reminder build with toastr for laravel5.*",
+            "time": "2015-11-21 04:49:19"
         },
         {
             "name": "swiftmailer/swiftmailer",

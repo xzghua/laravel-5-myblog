@@ -5,33 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
+use Rry\Reminder\Reminder;
 
 class CategoryController extends Controller
 {
-    public function getAllCate()
-    {
-        $all = Category::all()->toArray();
 
-        $return = $this->tree($all);
-
-        return $return;
-
-    }
-
-    public function tree($data,$newArr = [])
-    {
-        foreach ($data as $key => $value) {
-
-            $checkChild = Category::find($value['id'])->value('cate_name');
-
-            if (empty($checkChild)) return false;
-
-            $newArr[] = $value;
-            unset($data[$key]);
-
-            return $this->tree($data,$newArr);
-        }
-    }
     /**
      * Display a listing of the resource.
      *
@@ -40,14 +19,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-
-        dd($this->getAllCate());
-
-        $paginate = Category::orderBy('created_at','desc')
-            ->paginate(20);
-
-        $data['paginate'] = $paginate;
-        $data['category'] = $paginate->toArray();
+        $data['category'] = Category::getCateArr();
         return view('Admin.Category.categoryList',$data);
 
     }
@@ -60,6 +32,8 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        $data['category'] = Category::getCateArr();
+        return view('Admin.Category.createCategory',$data);
     }
 
     /**
@@ -71,6 +45,16 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $data = changeHumpToUnderLine($request->all());
+        Log::info('route is '.$request->url().',the data is '.json_encode($request->all()));
+        try {
+            if (Category::create($data)) {
+                Reminder::success();
+                return redirect()->route('category.index');
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
     }
 
     /**
@@ -82,6 +66,19 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+        $data['category'] = Category::getCateArr();
+        $checkTheId = Category::find($id);
+
+
+//        if (empty($checkTheId)) {
+//            return response([
+//                'success'
+//            ]);
+//        }
+        $getTheCateData = Category::where('id',$id)
+            ->get()
+            ->toArray();
+        dd($getTheCateData);
     }
 
     /**
@@ -93,6 +90,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        dd($id);
     }
 
     /**
@@ -105,6 +103,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd($id);
     }
 
     /**

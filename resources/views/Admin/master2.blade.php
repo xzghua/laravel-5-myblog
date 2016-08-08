@@ -14,15 +14,17 @@
     <link rel="stylesheet" href="Admin/assets/css/style.css">
     <link rel="stylesheet" href="Admin/assets/css/loader-style.css">
     <link rel="stylesheet" href="Admin/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="Admin/assets/css/media.css">
-    <link rel="stylesheet" href="Admin/assets/css/social.css">
-    @yield('css')
+    {{--<link rel="stylesheet" href="Admin/assets/css/media.css">--}}
+    {{--<link rel="stylesheet" href="Admin/assets/css/social.css">--}}
+    <link rel="stylesheet" href="Admin/assets/css/mail.css">
+
+@yield('css')
 
 
 
 
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,8 +32,7 @@
     <link rel="shortcut icon" href="Admin/assets/ico/minus.png">
 </head>
 
-<body>
-<div id="awwwards" class="right black"><a href="http://www.ylsc633.com" target="_blank">best websites of the world</a></div>
+<body><div id="awwwards" class="right black"><a href="http://www.awwwards.com/best-websites/apricot-navigation-admin-dashboard-template" target="_blank">best websites of the world</a></div>
 <!-- Preloader -->
 <div id="preloader">
     <div id="status">&nbsp;</div>
@@ -61,6 +62,87 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:20px;" class="icon-conversation"></i><div class="noft-red">23</div></a>
+
+
+                    <ul style="margin: 11px 0 0 9px;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle" src="http://api.randomuser.me/portraits/thumb/men/1.jpg">Jhon Doe <b>Just Now</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle" src="http://api.randomuser.me/portraits/thumb/women/1.jpg">Jeniffer <b>3 Min Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle" src="http://api.randomuser.me/portraits/thumb/men/2.jpg">Dave <b>2 Hours Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle" src="http://api.randomuser.me/portraits/thumb/men/3.jpg"><i>Keanu</i>  <b>1 Day Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <img alt="" class="img-msg img-circle" src="http://api.randomuser.me/portraits/thumb/men/4.jpg"><i>Masashi</i>  <b>2 Mounth Ago</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>See All Messege</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i style="font-size:19px;" class="icon-warning tooltitle"></i><div class="noft-green">5</div></a>
+                    <ul style="margin: 12px 0 0 0;" role="menu" class="dropdown-menu dropdown-wrap">
+                        <li>
+                            <a href="#">
+                                <span style="background:#DF2135" class="noft-icon maki-bus"></span><i>From Station</i>  <b>01B</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#AB6DB0" class="noft-icon maki-ferry"></span><i>Departing at</i>  <b>9:00 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#FFA200" class="noft-icon maki-aboveground-rail"></span><i>Delay for</i>  <b>09 Min</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#86C440" class="noft-icon maki-airport"></span><i>Take of</i>  <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <span style="background:#0DB8DF" class="noft-icon maki-bicycle"></span><i>Take of</i>  <b>08:30 AM</b>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div>See All Notification</div>
+                        </li>
+                    </ul>
+                </li>
                 <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
                 </li>
 
@@ -83,14 +165,32 @@
                     <li class="meridiem"></li>
                 </ul>
                 <ul id="nt-title">
-                    {{--<div>天气</div>--}}
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Berlin&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Yogyakarta&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; Tonight- 72 °F (22.2 °C)
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Sttugart&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Muchen&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
+                    <li><i class="wi-day-lightning"></i>&#160;&#160;Frankurt&#160;
+                        <b>85</b><i class="wi-fahrenheit"></i>&#160;; 15km/h
+                    </li>
+
                 </ul>
             </div>
 
             <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                 <li>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" class="admin-pic img-circle" src="Admin/assets/img/logo.png">Hi, Yela <b class="caret"></b>
+                        <img alt="" class="admin-pic img-circle" src="http://api.randomuser.me/portraits/thumb/men/10.jpg">Hi, Dave Mattew <b class="caret"></b>
                     </a>
                     <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                         <li>
@@ -104,6 +204,11 @@
                         <li>
                             <a href="#">
                                 <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="http://themeforest.net/item/apricot-navigation-admin-dashboard-template/7664475?WT.ac=category_item&WT.z_author=themesmile">
+                                <span class="entypo-basket"></span>&#160;&#160; Purchase</a>
                         </li>
                     </ul>
                 </li>
@@ -165,16 +270,6 @@
             <input type="search" placeholder="Search Menu..." class="id_search">
         </form>
     </div>
-
-
-    <div class="search-hover">
-        <form id="demo-2">
-            <input type="search" placeholder="Search Menu..." class="id_search">
-        </form>
-    </div>
-
-
-
 
     <div class="skin-part">
         <div id="tree-wrap">
@@ -444,8 +539,8 @@
             <div id="paper-top">
                 <div class="col-sm-3">
                     <h2 class="tittle-content-header">
-                        <span class="entypo-doc-text"></span>
-                        <span>@yield('title')
+                        <i class="icon-mail"></i>
+                        <span>Mail
                             </span>
                     </h2>
 
@@ -468,7 +563,28 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="devider-vertical visible-lg"></div>
-
+                    <div class="btn-group btn-wigdet pull-right visible-lg">
+                        <div class="btn">
+                            Widget</div>
+                        <button data-toggle="dropdown" class="btn dropdown-toggle" type="button">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul role="menu" class="dropdown-menu">
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-plus-circled margin-iconic"></span>Add New</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-heart margin-iconic"></span>Favorite</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="entypo-cog margin-iconic"></span>Setting</a>
+                            </li>
+                        </ul>
+                    </div>
 
 
                 </div>
@@ -483,11 +599,11 @@
             </li>
             <li><i class="fa fa-lg fa-angle-right"></i>
             </li>
-            <li><a href="#" title="Sample page 1">@yield('menu')</a>
+            <li><a href="#" title="Sample page 1">Home</a>
             </li>
             <li><i class="fa fa-lg fa-angle-right"></i>
             </li>
-            <li><a href="#" title="Sample page 1">@yield('pageName')</a>
+            <li><a href="#" title="Sample page 1">Mail</a>
             </li>
             <li class="pull-right">
                 <div class="input-group input-widget">
@@ -500,16 +616,590 @@
         <!-- END OF BREADCRUMB -->
 
 
-        <!--CONTENT-->
-        <div class="row" style="margin-top:30px;padding:0 15px;">
-            <!--  BLOG CONTENT -->
-            <div class="col-sm-12">
-@yield('content')
-            </div>
 
+        <div class="content-wrap">
+            <div class="row">
+                <!-- SIDEMENU MAIL -->
+                <div class="col-sm-2">
+                    <div class="side-mail">
+                        <div class="btn btn-info button-mail" data-toggle="modal" data-target="#myModal"><i class="entypo-pencil"></i>&nbsp;&nbsp;Compose Mail</div>
+                        <div class="list-btn-mail active">
+                            <span class="entypo-download"></span><a>Inbox</a><i>648</i>
+                        </div>
+                        <div class="list-btn-mail">
+                            <span class="entypo-floppy"></span><a>Draft</a><i>5</i>
+                        </div>
+                        <div class="list-btn-mail">
+                            <span class="entypo-logout"></span><a>Sent</a>
+                        </div>
+                        <div class="list-btn-mail">
+                            <span class="entypo-trash"></span><a>Trash</a>
+                        </div>
+                        <div class="list-btn-mail">
+                            <span class="entypo-alert"></span><a>Spam</a><i>123</i>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!-- /SIDEMENU MAIL -->
+                <!-- CONTENT MAIL -->
+                <div class="col-sm-10">
+
+                    <div class="mail_header">
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <div style="margin-right:10px" class="btn-group pull-left">
+                                    <div class="btn">
+                                        <input type="checkbox" style="margin:0 5px;padding:0;position:relative;top:2px;">All</div>
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">None</a>
+                                        </li>
+                                        <li><a href="#">read</a>
+                                        </li>
+                                        <li><a href="#">Unread</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+                                <div style="margin-right:10px" class="btn-group pull-left">
+                                    <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">More
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-ban"></i> Spam</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button style="margin-right:10px" type="button" data-color="#39B3D7" data-opacity="0.95" class="btn button test pull-left">
+                                    <span class="entypo-arrows-ccw"></span>&nbsp;&nbsp;Refresh</button>
+
+
+                            </div>
+
+
+                            <div class="col-sm-6">
+
+
+
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn">
+                                        <span class="entypo-left-open"></span>
+                                    </button>
+                                    <button type="button" class="btn">
+                                        <span class="entypo-right-open"></span>
+                                    </button>
+
+                                </div>
+
+                                <div class="btn-group pull-right" style="margin-right:10px;">
+                                    <button type="button" class="btn">1-50 of 124</button>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    <div id="content-mail">
+                        <div class="table-responsive">
+                            <!-- THE MESSAGES -->
+                            <table class="table table-mailbox">
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name"><a class="star" href=""><i class="fa fa-twitter"></i></a>
+                                    </td>
+                                    <td>Twitter</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Do You Know</strong>Iko Uwais, Justin Beiber on twitter? ...</p>
+                                    </td>
+                                    <td class="time text-right">Jan 8 at 07:10am</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name"> <a class="star" href=""><i class="fa fa-facebook"></i></a>
+                                    </td>
+                                    <td>Facebook</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Meeting Reminder</strong>Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                    </td>
+                                    <td class="time text-right">Yesterday at 1:30am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-instagrem"></span>
+                                        </a>
+                                    </td>
+                                    <td>Instagram</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>User Interface Conference</strong>Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                    </td>
+                                    <td class="time text-right">Jan 13 at 7:30am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-user"></span>
+                                        </a>
+                                    </td>
+                                    <td>Jhony Deep</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Hi, matirasa</strong>how are u today?</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 7:32am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-behance"></span>
+                                        </a>
+                                    </td>
+                                    <td>Behance Support</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Upgrade your membership</strong>, you may be eligible for a FREE Trial.</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 10:11pm</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-tumblr"></span>
+                                        </a>
+                                    </td>
+                                    <td>Tumblr</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Follow</strong>more blogs and have more fun</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-paypal"></span>
+                                        </a>
+                                    </td>
+                                    <td>Paypal</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            We're transferring money from PayPal to your bank</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-dropbox"></span>
+                                        </a>
+                                    </td>
+                                    <td>Dropbox</td>
+                                    <td class="subject">
+                                        <strong>New Update</strong>Now are available, get it now!
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+                                <!-- TWO -->
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name"><a class="star" href=""><i class="fa fa-twitter"></i></a>
+                                    </td>
+                                    <td>Twitter</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Do You Know</strong>Iko Uwais, Justin Beiber on twitter? ...</p>
+                                    </td>
+                                    <td class="time text-right">Jan 8 at 07:10am</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name"> <a class="star" href=""><i class="fa fa-facebook"></i></a>
+                                    </td>
+                                    <td>Facebook</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Meeting Reminder</strong>Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                    </td>
+                                    <td class="time text-right">Yesterday at 1:30am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-instagrem"></span>
+                                        </a>
+                                    </td>
+                                    <td>Instagram</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>User Interface Conference</strong>Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                    </td>
+                                    <td class="time text-right">Jan 13 at 7:30am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-user"></span>
+                                        </a>
+                                    </td>
+                                    <td>Jhony Deep</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Hi, matirasa</strong>how are u today?</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 7:32am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-behance"></span>
+                                        </a>
+                                    </td>
+                                    <td>Behance Support</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Upgrade your membership</strong>, you may be eligible for a FREE Trial.</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 10:11pm</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-tumblr"></span>
+                                        </a>
+                                    </td>
+                                    <td>Tumblr</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Follow</strong>more blogs and have more fun</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-paypal"></span>
+                                        </a>
+                                    </td>
+                                    <td>Paypal</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            We're transferring money from PayPal to your bank</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-dropbox"></span>
+                                        </a>
+                                    </td>
+                                    <td>Dropbox</td>
+                                    <td class="subject">
+                                        <strong>New Update</strong>Now are available, get it now!
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+                                <!-- END OF TWO -->
+                                <!-- THREE -->
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name"><a class="star" href=""><i class="fa fa-twitter"></i></a>
+                                    </td>
+                                    <td>Twitter</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Do You Know</strong>Iko Uwais, Justin Beiber on twitter? ...</p>
+                                    </td>
+                                    <td class="time text-right">Jan 8 at 07:10am</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name"> <a class="star" href=""><i class="fa fa-facebook"></i></a>
+                                    </td>
+                                    <td>Facebook</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Meeting Reminder</strong>Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                    </td>
+                                    <td class="time text-right">Yesterday at 1:30am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-instagrem"></span>
+                                        </a>
+                                    </td>
+                                    <td>Instagram</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>User Interface Conference</strong>Ut enim ad minim veniam, quis nostrud exercitation...</p>
+                                    </td>
+                                    <td class="time text-right">Jan 13 at 7:30am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-user"></span>
+                                        </a>
+                                    </td>
+                                    <td>Jhony Deep</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Hi, matirasa</strong>how are u today?</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 7:32am</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-behance"></span>
+                                        </a>
+                                    </td>
+                                    <td>Behance Support</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Upgrade your membership</strong>, you may be eligible for a FREE Trial.</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 10:11pm</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-tumblr"></span>
+                                        </a>
+                                    </td>
+                                    <td>Tumblr</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            <strong>Follow</strong>more blogs and have more fun</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-paypal"></span>
+                                        </a>
+                                    </td>
+                                    <td>Paypal</td>
+                                    <td class="subject">
+                                        <p class="email-summary">
+                                            We're transferring money from PayPal to your bank</p>
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+
+                                <tr class="unread">
+                                    <td class="small-col">
+                                        <input type="checkbox">
+                                    </td>
+                                    <td class="small-col"><i class="fa fa-star"></i>
+                                    </td>
+                                    <td class="name">
+                                        <a class="star" href="">
+                                            <span class="entypo-dropbox"></span>
+                                        </a>
+                                    </td>
+                                    <td>Dropbox</td>
+                                    <td class="subject">
+                                        <strong>New Update</strong>Now are available, get it now!
+                                    </td>
+                                    <td class="time text-right">Jan 11 at 9:54pm</td>
+                                </tr>
+
+                                <!-- END OF THREE -->
+
+
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+
+
+                    </div>
+
+                </div>
+                <!-- /CONTENT MAIL -->
+            </div>
         </div>
 
-        @yield('newContent')
+
         <!-- /END OF CONTENT -->
 
 
@@ -523,15 +1213,116 @@
                 <p id="clock">
             </div>
             <div class="copyright">Make with Love
-                <span class="entypo-heart"></span>2014 <a href="http://ylsc633.com">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
+                <span class="entypo-heart"></span>2014 <a href="http://themeforest.net/item/apricot-navigation-admin-dashboard-template/7664475?WT.ac=category_item&WT.z_author=themesmile">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
             <div class="devider-footer"></div>
-
         </div>
         <!-- / END OF FOOTER -->
 
-
     </div>
 </div>
+<div aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1" class="modal fade bs-example-modal-lg" style="display: none;" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">
+                    <span class="entypo-cancel"></span>
+                </button>
+                <h6 id="myLargeModalLabel" class="modal-title">Compose Mail</h6>
+            </div>
+            <div class="modal-body">
+
+                <div class="compose_mail">
+
+                    <form role="form">
+                        <div class="form-group">
+
+                            <input type="email" placeholder="To" id="exampleInputEmail1" class="form-control">
+                        </div>
+                        <div class="form-group">
+
+                            <input type="email" placeholder="Subject" id="exampleInputPassword1" class="form-control">
+                        </div>
+
+
+
+
+                        <div class="btn-group">
+                            <button data-toggle="dropdown" class="btn dropdown-toggle" type="button">
+                                <span class="fontawesome-font"></span>Normal text
+                                <span class="caret"></span>
+                            </button>
+                            <ul role="menu" class="dropdown-menu">
+                                <li><a href="#">Action</a>
+                                </li>
+                                <li><a href="#">Another action</a>
+                                </li>
+                                <li><a href="#">Something else here</a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                        <div class="btn-group">
+                            <button type="button" class="btn">
+                                <span class="fontawesome-bold"></span>
+                            </button>
+                            <button type="button" class="btn">
+                                <span class="fontawesome-italic"></span>
+                            </button>
+                            <button type="button" class="btn">
+                                <span class="fontawesome-underline"></span>
+                            </button>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn">
+                                <span class="fontawesome-list-ul"></span>
+                            </button>
+                            <button type="button" class="btn">
+                                <span class="fontawesome-list-ol"></span>
+                            </button>
+                            <button type="button" class="btn">
+                                <span class="fontawesome-indent-left"></span>
+                            </button>
+                            <button type="button" class="btn">
+                                <span class="fontawesome-indent-right"></span>
+                            </button>
+
+                        </div>
+
+
+                        <button type="button" class="btn">
+                            <span class="entypo-link"></span>
+                        </button>
+                        <button type="button" class="btn">
+                            <span class="entypo-attach"></span>
+                        </button>
+                        <button type="button" class="btn">
+                            <span class="fontawesome-table"></span>
+                        </button>
+                        <button type="button" class="btn">
+                            <span class="fontawesome-camera"></span>
+                        </button>
+
+
+                        <textarea style="height:200px!important;margin:20px 0" class="form-control" rows="8"></textarea>
+
+
+                        <button class="btn" type="submit">Send</button>
+                        <button class="btn" type="submit">
+                            <span class="fontawesome-save"></span>&nbsp;&nbsp;Save as Draft</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
 <!--  END OF PAPER WRAP -->
 
 <!-- RIGHT SLIDER CONTENT -->
@@ -588,11 +1379,77 @@
             <div class="col-sm-12">
                 <span class="label label-warning label-chat">Online</span>
                 <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle" src="http://api.randomuser.me/portraits/thumb/men/20.jpg">
+                                </span><b>Dave Junior</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle" src="http://api.randomuser.me/portraits/thumb/men/21.jpg">
+                                </span><b>Kenneth Lucas</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-circle" src="http://api.randomuser.me/portraits/thumb/men/22.jpg">
+                                </span><b>Heidi Perez</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
 
                 </ul>
 
                 <span class="label label-chat">Offline</span>
                 <ul class="chat">
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle" src="http://api.randomuser.me/portraits/thumb/men/23.jpg">
+                                </span><b>Dave Junior</b>
+                            <br><i>Last seen : 08:00 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle" src="http://api.randomuser.me/portraits/thumb/women/24.jpg">
+                                </span><b>Kenneth Lucas</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle" src="http://api.randomuser.me/portraits/thumb/men/25.jpg">
+                                </span><b>Heidi Perez</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle" src="http://api.randomuser.me/portraits/thumb/women/25.jpg">
+                                </span><b>Kenneth Lucas</b>
+                            <br><i>Last seen : 07:21 PM</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                                <span>
+                                    <img alt="" class="img-chat img-offline img-circle" src="http://api.randomuser.me/portraits/thumb/men/26.jpg">
+                                </span><b>Heidi Perez</b>
+                            <br><i>Last seen : 05:43 PM</i>
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>
@@ -600,10 +1457,8 @@
     </div>
 </div>
 
+
 <!-- END OF RIGHT SLIDER CONTENT-->
-
-
-
 
 <!-- MAIN EFFECT -->
 <script type="text/javascript" src="Admin/assets/js/preloader.js"></script>
@@ -611,17 +1466,8 @@
 <script type="text/javascript" src="Admin/assets/js/app.js"></script>
 <script type="text/javascript" src="Admin/assets/js/load.js"></script>
 <script type="text/javascript" src="Admin/assets/js/main.js"></script>
-<script src="Admin/assets/js/flatvideo/jquery.fitvids.js"></script>
 
-@yield('js')
 
-<script>
-    // Basic FitVids Test
-    $(".blog-list-nest").fitVids();
-    // Custom selector and No-Double-Wrapping Prevention Test
-    $(".blog-list-nest").fitVids();
-    // Custom selector and No-Double-Wrapping Prevention Test
-</script>
 
 
 </body>
