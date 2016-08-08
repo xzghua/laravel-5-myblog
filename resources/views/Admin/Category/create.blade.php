@@ -76,6 +76,6 @@
 
 @section('js')
     <script type="text/javascript" src="/Admin/assets/js/validate/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="/Admin/admin.createCategory.js"></script>
+    <script type="text/javascript" src="/Admin/admin.create.js"></script>
 
 @endsection

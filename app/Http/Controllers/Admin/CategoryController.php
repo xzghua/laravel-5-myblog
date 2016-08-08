@@ -19,7 +19,7 @@ class CategoryController extends Controller
     {
         //
         $data['category'] = Category::getCateArr();
-        return view('Admin.Category.categoryList',$data);
+        return view('Admin.Category.index',$data);
 
     }
 
@@ -32,7 +32,7 @@ class CategoryController extends Controller
     {
         //
         $data['category'] = Category::getCateArr();
-        return view('Admin.Category.createCategory',$data);
+        return view('Admin.Category.create',$data);
     }
 
     /**
@@ -78,7 +78,7 @@ class CategoryController extends Controller
             ->first()
             ->toArray();
 
-        return view('Admin.Category.editCategory',$data);
+        return view('Admin.Category.edit',$data);
 
     }
 

@@ -225,9 +225,6 @@
                             <li>
                                 <a class="tooltip-tip2 " href="/category" title="分类列表"><i class="icon-media-record"></i><span>分类列表</span></a>
                             </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Grids"><i class="icon-menu"></i><span>Grids</span></a>
-                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -242,83 +239,18 @@
                         </a>
                     </li>
 
-
                     <li>
-                        <a class="tooltip-tip" href="#" title="UI Element">
-                            <i class="icon-monitor"></i>
-                            <span>UI Element</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Element"><i class="icon-attachment"></i><span>Element</span></a>
-                            </li>
-                            <li><a class="tooltip-tip2 ajax-load" href="/article" title="Button"><i class="icon-view-list-large"></i><span>Button</span> <div class="noft-blue-number">10</div></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Tab & Accordion"><i class="icon-folder"></i><span>Wizard</span><div class="noft-purple-number">3</div></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Calender"><i class="icon-calendar"></i><span>Calendar</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Tree View"><i class="icon-view-list"></i><span>Tree View</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Grids"><i class="icon-menu"></i><span>Grids</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Chart"><i class="icon-graph-pie"></i><span>Chart</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip ajax-load" href="/article" title="Typhoghrapy">
-                                    <i class="icon-information"></i>
-                                    <span>Typhoghrapy</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="tooltip-tip" href="#" title="Form">
-                            <i class="icon-document"></i>
-                            <span>Form</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Form Elements"><i class="icon-document-edit"></i><span>Form Elements</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Andvance Form"><i class="icon-map"></i><span>Andvance Form</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Text Editor"><i class="icon-code"></i><span>Text Editor</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="File Upload"><i class="icon-upload"></i><span>File Upload</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="tooltip-tip" href="#" title="Tables">
+                        <a class="tooltip-tip" href="#" title="标签管理">
                             <i class="icon-view-thumb"></i>
-                            <span>Tables</span>
+                            <span>标签管理</span>
                         </a>
                         <ul>
                             <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Table Static"><i class="entypo-layout"></i><span>Table Static</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/article" title="Table Dynamic"><i class="entypo-menu"></i><span>Table Dynamic</span></a>
+                                <a class="tooltip-tip2 ajax-load" href="/tag" title="标签管理"><i class="entypo-layout"></i><span>标签列表</span></a>
                             </li>
                         </ul>
                     </li>
 
-                    <li>
-                        <a class="tooltip-tip ajax-load" href="/article" title="Map">
-                            <i class="icon-location"></i>
-                            <span>Map</span>
-
-                        </a>
-                    </li>
                 </ul>
 
 

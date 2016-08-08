@@ -2,6 +2,10 @@
  * Created by ylsc on 16-8-8.
  */
 
+/**
+ * 校验分类列表的表单
+ * @type {any}
+ */
 var createForm = $('.createForm').validate({
     rules:{
         parentId:{
@@ -54,6 +58,23 @@ var createForm = $('.createForm').validate({
         }
     }
 
+});
 
-
+/**
+ * 校验标签列表
+ * @type {any}
+ */
+var tagForm = $('.tagForm').validate({
+    rules:{
+        tagName:{
+            required:true,
+            maxlength:20
+        }
+    },
+    messages:{
+        tagName:{
+            required:'请输入标签名称',
+            maxlength:'标签长度超出'
+        }
+    }
 });
