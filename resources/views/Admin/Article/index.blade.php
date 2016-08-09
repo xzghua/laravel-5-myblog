@@ -8,7 +8,7 @@
 @section('pageName','文章列表')
 
 @section('content')
-    <a href="#clear" style="margin-left:10px;" class="pull-left btn btn-info clear-filter" title="clear filter">写文章</a>
+    <a href="/article/create" style="margin-left:10px;" class="pull-left btn btn-info clear-filter" title="clear filter">写文章</a>
 
     <table id="responsive-example-table" class="table large-only table-hover " >
         <thead>

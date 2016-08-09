@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Article;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -61,6 +60,7 @@ class TagController extends Controller
             reminder()->error(config("code.".Tag::TAG_CREATE_ERROR),'创建失败');
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
+        return redirect()->back();
     }
 
     /**
@@ -123,7 +123,7 @@ class TagController extends Controller
             reminder()->error(config("code.".Tag::TAG_UPDATE_ERROR),'更新失败');
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
-
+        return redirect()->back();
     }
 
     /**
@@ -135,14 +135,17 @@ class TagController extends Controller
     public function destroy($id)
     {
         //
+
+        $tag = Tag::find($id);
+
         $log = 'destroy the Tag , the ID is'.$id;
-        if (!Tag::find($id)) {
+        if (!$tag) {
             reminder()->error(config("code.".Tag::TAG_ID_NOT_EXIST),'操作失败');
             Log::info($log.'errorCode is '.config("code.".Tag::TAG_ID_NOT_EXIST));
             return redirect()->back();
         }
         try {
-            if (Tag::destroy($id)) {
+            if ( $tag->getTags()->detach() >= 0  && Tag::destroy($id)) {
                 reminder()->success(config("code.".Tag::TAG_DELETE_SUCCESS),'删除成功');
                 Log::info($log.'errorCode is '.config("code.".Tag::TAG_DELETE_SUCCESS));
                 return redirect()->route('tag.index');
@@ -152,5 +155,7 @@ class TagController extends Controller
             Log::info($log.'errorCode is '.config("code.".Tag::TAG_DELETE_ERROR));
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
+
+        return redirect()->back();
     }
 }

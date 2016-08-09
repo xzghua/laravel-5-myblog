@@ -36,4 +36,10 @@ class Tag extends Model
         'tag_name',
     ];
 
+    public function getTags()
+    {
+        return $this->belongsToMany('App\Models\Article','iphpt_tags','tag_id','art_id');
+    }
+
+
 }

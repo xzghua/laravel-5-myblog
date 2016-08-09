@@ -118,4 +118,31 @@ class Article extends Model
     {
         return $this->getTags()->attach($tagId);
     }
+
+    /**
+     * 整理文章表数据,用于前段展示
+     * @date 2016年08月09日11:41:45
+     * @param $allData
+     * @return mixed
+     */
+    public static function sortData($allData)
+    {
+        foreach ($allData['data'] as $key => $item) {
+            $allData['data'][$key]['author'] = $item['get_author']['name'];
+            $allData['data'][$key]['views']  = $item['get_views']['view_num'];
+            if (!empty($item['get_tags'])) {
+                $allData['data'][$key]['tags'] = implode(',',array_column($item['get_tags'], 'tag_name'));
+            } else {
+                $allData['data'][$key]['tags'] = '';
+            }
+
+            if (!empty($item['get_categories'])) {
+                $allData['data'][$key]['categories'] = implode(',',array_column($item['get_categories'], 'cate_name'));
+            } else {
+                $allData['data'][$key]['categories'] = '';
+            }
+        }
+        return $allData;
+    }
+
 }

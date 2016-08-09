@@ -55,6 +55,7 @@ class CategoryController extends Controller
             reminder()->error(config("code.".Category::CATEGORY_CREATE_ERROR),'创建失败');
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
+        return redirect()->back();
     }
 
     /**
@@ -122,6 +123,7 @@ class CategoryController extends Controller
             reminder()->error(config("code.".Category::CATEGORY_UPDATE_ERROR),'更新失败');
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
+        return redirect()->back();
     }
 
     /**
