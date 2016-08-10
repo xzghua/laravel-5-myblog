@@ -13,6 +13,14 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
 
+    const ARTICLE_CREATE_ERROR = '300000002';
+    const ARTICLE_ID_NOT_EXIST = '300000007';
+    const ARTICLE_CREATE_SUCCESS = '300000001';
+    const ARTICLE_UPDATE_SUCCESS = '300000003';
+    const ARTICLE_UPDATE_ERROR = '300000004';
+    const ARTICLE_DELETE_SUCCESS = '300000005';
+    const ARTICLE_DELETE_ERROR = '300000006';
+
     /**
      * 关联到模型的数据表
      *
@@ -52,7 +60,6 @@ class Article extends Model
         return $this->hasOne('App\Models\View','art_id');
     }
 
-
     /**
      * 文章对应的分类
      * @date 2016年08月04日13:39:51
@@ -84,8 +91,6 @@ class Article extends Model
     {
         return $this->getCategories()->attach($cateId);
     }
-
-
 
     /**
      * 文章对应的标签
@@ -143,6 +148,51 @@ class Article extends Model
             }
         }
         return $allData;
+    }
+
+    public static function dealWithPostTags($tags)
+    {
+        if (empty($tags)) {
+
+        }
+
+        $tagArr = explode(',',$tags);
+
+        $existTags      = [];
+        $notExistTags   = [];
+        foreach ($tagArr as $key => $value) {
+            $getTagId = Tag::where('tag_name',$value)->first();
+
+            if ($getTagId) {
+                array_push($existTags,$getTagId->id);
+            } else {
+                array_push($notExistTags,$value);
+            }
+        }
+
+        return ['existTag' => $existTags, 'notExistTag' => $notExistTags];
+    }
+
+    public static function attachThisTags($tag)
+    {
+        $tags = self::dealWithPostTags($tag);
+
+        $existTag = $tags['existTag'];
+        $notExistTag = $tags['notExistTag'];
+
+        $newCreateTagIds = [];
+        foreach ($notExistTag as $item) {
+            array_push($newCreateTagIds,Tag::create(['tag_name' => $item,'tag_number' => '1'])->id);
+        }
+
+        foreach ($existTag as $k => $v) {
+            Tag::where('id',$v)->increment('tag_number',1);
+        }
+
+        $mergeTags = array_merge($newCreateTagIds,$existTag);
+
+        return $mergeTags;
+
     }
 
 }

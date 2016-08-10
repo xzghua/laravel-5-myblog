@@ -34,6 +34,7 @@ class Tag extends Model
 
     protected $fillable = [
         'tag_name',
+        'tag_number'
     ];
 
     public function getTags()

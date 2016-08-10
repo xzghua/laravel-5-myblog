@@ -6,6 +6,8 @@ use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class ArticleController extends Controller
 {
@@ -22,7 +24,7 @@ class ArticleController extends Controller
             ->with('getTags')
             ->with('getCategories')
             ->with('getViews')
-            ->paginate(20);
+            ->paginate(12);
 
         $data['article'] = Article::sortData($data['paginate']->toArray());
 
@@ -50,6 +52,32 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         //
+        $data = [
+            'title'     => trim(Input::get('title')),
+            'content'   => Input::get('test-editormd-markdown-doc'),
+            'user_id'   => /*Auth::user()->id*/ '2' //还没写登陆
+        ];
+        $tags = Input::get('tag');
+        $mergeTags = Article::attachThisTags($tags);
+        $category = Input::get('category');
+
+        try {
+            $article =  Article::create($data);
+
+            if ($article) {
+                $article->attachTag($mergeTags);
+                $article->attachCate([$category]);
+                $article->getViews()->create(['art_id' => $article->id]);
+                reminder()->success(config("code.".Article::ARTICLE_CREATE_SUCCESS),'创建成功');
+                return redirect()->route('article.index');
+            }
+
+        } catch (\Exception $e) {
+            reminder()->error(config("code.".Article::ARTICLE_CREATE_ERROR),'创建失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
+        reminder()->error(config("code.".Article::ARTICLE_CREATE_ERROR),'创建失败');
+        return redirect()->back();
     }
 
     /**
@@ -95,5 +123,11 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function uploadPhotosByEditor()
+    {
+
     }
 }

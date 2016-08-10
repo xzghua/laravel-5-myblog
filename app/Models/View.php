@@ -27,4 +27,6 @@ class View extends Model
         'view_num',
     ];
 
+    public $timestamps = false;
+
 }

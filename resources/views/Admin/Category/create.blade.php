@@ -21,6 +21,7 @@
                     <label class="col-sm-3 control-label">上级分类</label>
                     <div class="col-sm-6">
                         <select id="category" name="parentId" class="form-control parentId">
+                            <option value="top">顶级分类</option>
                             @foreach($category as $item)
                                 <option value="{{$item['id']}}"> {{$item['newHtml']}}</option>
                             @endforeach
@@ -77,5 +78,5 @@
 @section('js')
     <script type="text/javascript" src="/Admin/assets/js/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/Admin/admin.create.js"></script>
-
+    {!! reminder()->message() !!}
 @endsection

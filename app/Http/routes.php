@@ -21,6 +21,8 @@ Route::resource('article','Admin\ArticleController');
 Route::resource('category','Admin\CategoryController');
 Route::resource('tag','Admin\TagController');
 
+Route::get('autoCompleteTags','Admin\TagController@autoFillTags');
+
 //登陆认证
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('login', 'Auth\AuthController@getLogin');
@@ -31,3 +33,5 @@ Route::get('logout', 'Auth\AuthController@getLogout');
 //注册
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', 'Auth\AuthController@postRegister');
+
+Route::post('uploadPhotos','Admin\ArticleController@uploadPhotosByEditor');

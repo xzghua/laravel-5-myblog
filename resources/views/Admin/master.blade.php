@@ -202,7 +202,7 @@
                                 <a class="tooltip-tip2 ajax-load" href="/article" title="Articles List"><i class="entypo-doc-text"></i><span>文章列表</span></a>
                             </li>
                             <li>
-                                <a class="tooltip-tip2 ajax-load" href="blog-detail.html" title="Blog Detail"><i class="entypo-newspaper"></i><span>写文章</span></a>
+                                <a class="tooltip-tip2 ajax-load" href="/article/create" title="Blog Detail"><i class="entypo-newspaper"></i><span>写文章</span></a>
                             </li>
                         </ul>
                     </li>
@@ -508,6 +508,8 @@
 
 
 <!-- MAIN EFFECT -->
+<script src="/Admin/assets/js/jquery-2.1.1.min.js"></script>
+
 <script type="text/javascript" src="/Admin/assets/js/preloader.js"></script>
 <script type="text/javascript" src="/Admin/assets/js/bootstrap.js"></script>
 <script type="text/javascript" src="/Admin/assets/js/app.js"></script>
@@ -540,7 +542,9 @@
         "hideEasing": "linear",
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
-    }
+    };
+
+
 </script>
 
 

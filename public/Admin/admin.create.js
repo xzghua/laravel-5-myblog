@@ -8,9 +8,6 @@
  */
 var createForm = $('.createForm').validate({
     rules:{
-        parentId:{
-            min:1
-        },
         cateName:{
             required:true,
             maxlength:20
@@ -33,9 +30,6 @@ var createForm = $('.createForm').validate({
         }
     },
     messages:{
-        parentId:{
-            min:'必选项'
-        },
         cateName:{
             required:'请输入分类名称',
             maxlength:'长度超出最大范围'
@@ -75,6 +69,39 @@ var tagForm = $('.tagForm').validate({
         tagName:{
             required:'请输入标签名称',
             maxlength:'标签长度超出'
+        }
+    }
+});
+
+/**
+ * 写文章表单
+ * @type {any}
+ */
+var articleForm = $('.articleForm').validate({
+    rules:{
+        title:{
+            required:true,
+            maxlength:50
+        },
+        category:{
+            required:true,
+            min:1
+        },
+        tag:{
+            required:true
+        }
+    },
+    messages:{
+        title:{
+            required:'请输入标题',
+            maxlength:'已超出范围'
+        },
+        category:{
+            required:'请选择分类',
+            min:'请选择分类'
+        },
+        tag:{
+            required:'请输入标签'
         }
     }
 });

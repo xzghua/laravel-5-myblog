@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 
@@ -157,5 +158,16 @@ class TagController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    /**
+     * 写文章时,自动填充标签
+     * @date 2016年08月09日18:55:44
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function autoFillTags()
+    {
+        $term = Input::get('term');
+        return response()->json(Tag::where('tag_name','like',"%$term%")->lists('tag_name')->toArray());
     }
 }

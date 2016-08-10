@@ -45,6 +45,7 @@ class CategoryController extends Controller
     {
         //
         $data = changeHumpToUnderLine($request->all());
+        if ($data['parent_id'] == 'top') $data['parent_id'] = '0';
         Log::info('route is '.$request->url().',the data is '.json_encode($request->all()));
         try {
             if (Category::create($data)) {
@@ -114,6 +115,9 @@ class CategoryController extends Controller
 
         unset($data['_token']);
         unset($data['_method']);
+
+        if ($data['parent_id'] == 'top') $data['parent_id'] = '0';
+
         try {
             if (Category::where('id',$id)->update($data)) {
                 reminder()->success(config("code.".Category::CATEGORY_UPDATE_SUCCESS),'更新成功');

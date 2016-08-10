@@ -22,6 +22,7 @@
                     <label class="col-sm-3 control-label" for="category">上级分类</label>
                     <div class="col-sm-6">
                         <select id="category" name="parentId" class="form-control parentId">
+                            <option value="top">顶级分类</option>
                             @foreach($category as $item)
                                 <option value="{{$item['id']}}" @if ($cate['parent_id'] == $item['id']) selected @endif> {{$item['newHtml']}}</option>
                             @endforeach
