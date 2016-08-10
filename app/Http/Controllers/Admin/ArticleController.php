@@ -25,8 +25,7 @@ class ArticleController extends Controller
             ->with('getCategories')
             ->with('getViews')
             ->paginate(12);
-
-        $data['article'] = Article::sortData($data['paginate']->toArray());
+        $data['article'] = Article::sortData($data['paginate']->toArray()['data']);
 
         return view('Admin.Article.index',$data);
     }
@@ -89,6 +88,17 @@ class ArticleController extends Controller
     public function show($id)
     {
         //
+        $art = Article::where('id',$id)
+            ->with('getAuthor')
+            ->with('getTags')
+            ->with('getCategories')
+            ->with('getViews')
+            ->get()
+            ->toArray();
+        $data['article'] = Article::sortData($art)['0'];
+        $data['category'] = Category::getCateArr();
+
+        return view('Admin.Article.edit',$data);
     }
 
     /**
@@ -112,6 +122,37 @@ class ArticleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = [
+            'title'     => trim($request->get('title')),
+            'content'   => $request->get('test-editormd-markdown-doc'),
+            'user_id'   => /*Auth::user()->id*/ '2' //还没写登陆
+        ];
+
+        $tags = Input::get('tag');
+        $mergeTags = Article::attachThisTags($tags,$id);
+        $category = $request->get('category');
+
+        try {
+            $updateArt =  Article::find($id);
+
+            if ($updateArt) {
+                $updateArt->getTags()->sync($mergeTags);
+                $updateArt->getCategories()->sync([$category]);
+                if ($updateArt->update($data)) {
+                    reminder()->success(config("code.".Article::ARTICLE_UPDATE_SUCCESS),'修改成功');
+                    return redirect()->route('article.index');
+                }
+
+            } else {
+                reminder()->error(config("code.".Article::ARTICLE_UPDATE_ERROR),'修改失败');
+                return redirect()->route('article.index');
+            }
+
+        } catch (\Exception $e) {
+            reminder()->error(config("code.".Article::ARTICLE_UPDATE_ERROR),'修改失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
+
     }
 
     /**
@@ -123,6 +164,7 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
+        dd($id.'删除');
     }
 
 

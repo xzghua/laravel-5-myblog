@@ -8,11 +8,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Article extends Model
 {
-
+    use SoftDeletes;
     const ARTICLE_CREATE_ERROR = '300000002';
     const ARTICLE_ID_NOT_EXIST = '300000007';
     const ARTICLE_CREATE_SUCCESS = '300000001';
@@ -30,6 +31,12 @@ class Article extends Model
 
     protected $primaryKey = 'id';
 
+    /**
+     * 需要被转换成日期的属性。
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     protected $fillable = [
         'title',
@@ -125,39 +132,40 @@ class Article extends Model
     }
 
     /**
-     * 整理文章表数据,用于前段展示
+     * 整理文章表数据,用于前端展示
      * @date 2016年08月09日11:41:45
      * @param $allData
      * @return mixed
      */
     public static function sortData($allData)
     {
-        foreach ($allData['data'] as $key => $item) {
-            $allData['data'][$key]['author'] = $item['get_author']['name'];
-            $allData['data'][$key]['views']  = $item['get_views']['view_num'];
+        foreach ($allData as $key => $item) {
+            $allData[$key]['author'] = $item['get_author']['name'];
+            $allData[$key]['views']  = $item['get_views']['view_num'];
             if (!empty($item['get_tags'])) {
-                $allData['data'][$key]['tags'] = implode(',',array_column($item['get_tags'], 'tag_name'));
+                $allData[$key]['tags'] = implode(',',array_column($item['get_tags'], 'tag_name'));
             } else {
-                $allData['data'][$key]['tags'] = '';
+                $allData[$key]['tags'] = '';
             }
 
             if (!empty($item['get_categories'])) {
-                $allData['data'][$key]['categories'] = implode(',',array_column($item['get_categories'], 'cate_name'));
+                $allData[$key]['categories'] = implode(',',array_column($item['get_categories'], 'cate_name'));
             } else {
-                $allData['data'][$key]['categories'] = '';
+                $allData[$key]['categories'] = '';
             }
         }
         return $allData;
     }
 
+    /**
+     * 处理新建文章标签,返回一个已经存在的标签数组和不存在的标签数组
+     * @date 2016年08月10日14:03:02
+     * @param $tags
+     * @return array
+     */
     public static function dealWithPostTags($tags)
     {
-        if (empty($tags)) {
-
-        }
-
         $tagArr = explode(',',$tags);
-
         $existTags      = [];
         $notExistTags   = [];
         foreach ($tagArr as $key => $value) {
@@ -173,8 +181,19 @@ class Article extends Model
         return ['existTag' => $existTags, 'notExistTag' => $notExistTags];
     }
 
-    public static function attachThisTags($tag)
+    /**
+     * 将新建的标签添入Tag表中,已有的标签 数量自增1
+     * @date 2016年08月10日14:03:57
+     * @param $tag
+     * @param $code
+     * @return array
+     */
+    public static function attachThisTags($tag,$code = 'create')
     {
+        if (empty($tag)) {
+            return [];
+        }
+
         $tags = self::dealWithPostTags($tag);
 
         $existTag = $tags['existTag'];
@@ -185,8 +204,23 @@ class Article extends Model
             array_push($newCreateTagIds,Tag::create(['tag_name' => $item,'tag_number' => '1'])->id);
         }
 
-        foreach ($existTag as $k => $v) {
-            Tag::where('id',$v)->increment('tag_number',1);
+        //此处是判断当前是新建还是修改,修改时 标签计算是不一样的！
+        if ($code != 'create') {
+            $oldTags = self::find($code)->getTags()->lists('id')->toArray();
+            $arrayDiff = array_diff($oldTags,$existTag);
+
+            foreach ($arrayDiff as $k => $v) {
+                Tag::where('id',$v)->decrement('tag_number',1);
+            }
+
+            $arrayDiff2 = array_diff($existTag,$oldTags);
+            foreach ($arrayDiff2 as $k => $v) {
+                Tag::where('id',$v)->increment('tag_number',1);
+            }
+        } else {
+            foreach ($existTag as $k => $v) {
+                Tag::where('id',$v)->increment('tag_number',1);
+            }
         }
 
         $mergeTags = array_merge($newCreateTagIds,$existTag);

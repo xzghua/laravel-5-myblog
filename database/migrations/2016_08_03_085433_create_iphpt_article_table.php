@@ -15,6 +15,7 @@ class CreateIphptArticleTable extends Migration
         Schema::create('iphpt_article', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->softDeletes();
             $table->timestamps();
             $table->string('title')->comment('文章名');
             $table->text('content')->comment('文章内容');//文章内容

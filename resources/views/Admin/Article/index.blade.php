@@ -23,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($article['data'] as $item)
+        @foreach($article as $item)
             <tr class="">
                 <td>{{$item['id']}}</td>
                 <td>{{$item['title']}}</td>
@@ -32,8 +32,12 @@
                 <td>{{$item['created_at']}}</td>
                 <td>{{$item['author']}}</td>
                 <td>
-                    <a href="#clear" style="margin-left:10px;" class=" btn btn-info " title="文章修改"><span class="entypo-pencil"></span>&nbsp;&nbsp;修改</a>
-                    <a href="#clear" style="margin-left:10px;" class=" btn btn-danger " title="文章删除"> <span class="entypo-trash"></span>&nbsp;&nbsp;删除</a>
+                    <form action="/article/{{$item['id']}}" method="post">
+                        <a href="/article/{{$item['id']}}" style="margin-left:10px;" class=" btn btn-info " title="文章修改"><span class="entypo-pencil"></span>&nbsp;&nbsp;修改</a>
+                        <input type="hidden" name="_method" value="delete">
+                        {!! csrf_field() !!}
+                        <button  style="margin-left:10px;" class=" btn btn-danger " title="文章删除"> <span class="entypo-trash"></span>&nbsp;&nbsp;删除</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
