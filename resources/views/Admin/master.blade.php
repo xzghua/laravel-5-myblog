@@ -219,15 +219,13 @@
                     <li>
                         <a class="tooltip-tip" href="#" title="分类管理">
                             <i class="icon-document-new"></i>
-                            <span>分类管理</span>
+                            <span>评论管理</span>
                         </a>
                         <ul>
                             <li>
-                                <a class="tooltip-tip2 " href="/category" title="分类列表"><i class="icon-media-record"></i><span>分类列表</span></a>
+                                <a class="tooltip-tip2 " href="/category" title="评论列表"><i class="icon-media-record"></i><span>评论列表</span></a>
                             </li>
-                            <li>
-                                <a class="tooltip-tip2 " href="/category/create" title="新建分类"><i class="icon-media-record"></i><span>新建分类</span></a>
-                            </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -241,7 +239,20 @@
 
                         </a>
                     </li>
-
+                    <li>
+                        <a class="tooltip-tip" href="#" title="分类管理">
+                            <i class="icon-document-new"></i>
+                            <span>分类管理</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 " href="/category" title="分类列表"><i class="icon-media-record"></i><span>分类列表</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 " href="/category/create" title="新建分类"><i class="icon-media-record"></i><span>新建分类</span></a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a class="tooltip-tip" href="#" title="标签管理">
                             <i class="icon-view-thumb"></i>
@@ -270,80 +281,27 @@
                     <li>
                         <a class="tooltip-tip" href="#" title="UI Element">
                             <i class="icon-monitor"></i>
-                            <span>UI Element</span>
+                            <span>系统设置</span>
                         </a>
                         <ul>
                             <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Element"><i class="icon-attachment"></i><span>Element</span></a>
+                                <a class="tooltip-tip2 ajax-load" href="/seo" title="Element"><i class="icon-attachment"></i><span>首页设置</span></a>
                             </li>
-                            <li><a class="tooltip-tip2 ajax-load" href="" title="Button"><i class="icon-view-list-large"></i><span>Button</span> <div class="noft-blue-number">10</div></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Tab & Accordion"><i class="icon-folder"></i><span>Wizard</span><div class="noft-purple-number">3</div></a>
+                            <li><a class="tooltip-tip2 ajax-load" href="/link" title="Button"><i class="icon-view-list-large"></i><span>友链设置</span> </a>
                             </li>
                             <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Calender"><i class="icon-calendar"></i><span>Calendar</span></a>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Tab & Accordion"><i class="icon-folder"></i><span>系统设置</span></a>
                             </li>
                             <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Tree View"><i class="icon-view-list"></i><span>Tree View</span></a>
+                                <a class="tooltip-tip2 ajax-load" href="/navigation" title="Calender"><i class="icon-calendar"></i><span>导航设置</span></a>
                             </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Grids"><i class="icon-menu"></i><span>Grids</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Chart"><i class="icon-graph-pie"></i><span>Chart</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip ajax-load" href="" title="Typhoghrapy">
-                                    <i class="icon-information"></i>
-                                    <span>Typhoghrapy</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="tooltip-tip" href="#" title="Form">
-                            <i class="icon-document"></i>
-                            <span>Form</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Form Elements"><i class="icon-document-edit"></i><span>Form Elements</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Andvance Form"><i class="icon-map"></i><span>Andvance Form</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Text Editor"><i class="icon-code"></i><span>Text Editor</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="File Upload"><i class="icon-upload"></i><span>File Upload</span></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="tooltip-tip" href="#" title="Tables">
-                            <i class="icon-view-thumb"></i>
-                            <span>Tables</span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Table Static"><i class="entypo-layout"></i><span>Table Static</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Table Dynamic"><i class="entypo-menu"></i><span>Table Dynamic</span></a>
-                            </li>
+
                         </ul>
                     </li>
 
-                    <li>
-                        <a class="tooltip-tip ajax-load" href="" title="Map">
-                            <i class="icon-location"></i>
-                            <span>Map</span>
 
-                        </a>
-                    </li>
                 </ul>
+
 
 
                 <div class="side-dash">

@@ -23,11 +23,20 @@ Route::group(['middleware' => 'auth'],function(){
     Route::resource('category','Admin\CategoryController');
     Route::resource('tag','Admin\TagController');
 
+    Route::resource('link','Admin\LinkController');
+    Route::resource('seo','Admin\SeoController');
+    Route::resource('navigation','Admin\NavigationController');
+
+    //自动填充标签
     Route::get('autoCompleteTags','Admin\TagController@autoFillTags');
 
+    //退出
     Route::get('logout', 'Auth\AuthController@getLogout');
 
     Route::post('uploadPhotos','Admin\ArticleController@uploadPhotosByEditor');
+
+
+
 });
 
 

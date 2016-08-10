@@ -14,5 +14,5 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/open-sans-light.woff) format('woff');
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/OpenSans-Bold.ttf) format('ttf');
 }
