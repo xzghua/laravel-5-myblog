@@ -9,12 +9,12 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <script type="text/javascript" src="Admin/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/js/jquery.min.js"></script>
 
     <!--  <link rel="stylesheet" href="assets/css/style.css"> -->
-    <link rel="stylesheet" href="Admin/assets/css/loader-style.css">
-    <link rel="stylesheet" href="Admin/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="Admin/assets/css/signin.css">
+    <link rel="stylesheet" href="/Admin/assets/css/loader-style.css">
+    <link rel="stylesheet" href="/Admin/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/Admin/assets/css/signin.css">
 
 
 
@@ -26,7 +26,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="Admin/assets/ico/minus.png">
+    <link rel="shortcut icon" href="/Admin/assets/ico/minus.png">
 </head>
 
 <body>
@@ -58,12 +58,12 @@
                         {!! csrf_field() !!}
                         <div class="form-group">
                             <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
-                            <label for="inputUsernameEmail">用户名</label>
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control">
+                            <label for="email" >用户名</label>
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <!--a href="#" class="pull-right label-forgot">Forgot password?</a-->
-                            <label for="inputPassword">密码</label>
+                            <label for="password">密码</label>
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
                         <div class="checkbox pull-left">
@@ -74,18 +74,18 @@
                             登 录
                         </button>
                     </form>
-                    <a class="forgotLnk" href="index.html"></a>
+                    <a class="forgotLnk" href="#"></a>
 
                     <div class="or-box">
 
-                        <center><span class="text-center login-with">Login or <b>Sign Up</b></span></center>
+                        <center><span class="text-center login-with">Login or <a href="/register"><b>Sign Up</b> </a> </span></center>
                         <div class="row">
                             <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-facebook btn-block">
+                                <a href="#" class="btn btn-facebook btn-block">
                                     <span class="entypo-facebook space-icon"></span>Facebook</a>
                             </div>
                             <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-twitter btn-block">
+                                <a href="#" class="btn btn-twitter btn-block">
                                     <span class="entypo-twitter space-icon"></span>Twitter</a>
 
                             </div>
@@ -93,10 +93,10 @@
                         </div>
                         <div style="margin-top:25px" class="row">
                             <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>
+                                <a href="#" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>
                             </div>
                             <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>
+                                <a href="#" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>
                             </div>
 
                         </div>
@@ -135,11 +135,11 @@
 
 
 <!-- MAIN EFFECT -->
-<script type="text/javascript" src="Admin/assets/js/preloader.js"></script>
-<script type="text/javascript" src="Admin/assets/js/bootstrap.js"></script>
-<script type="text/javascript" src="Admin/assets/js/app.js"></script>
-<script type="text/javascript" src="Admin/assets/js/load.js"></script>
-<script type="text/javascript" src="Admin/assets/js/main.js"></script>
+<script type="text/javascript" src="/Admin/assets/js/preloader.js"></script>
+<script type="text/javascript" src="/Admin/assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="/Admin/assets/js/app.js"></script>
+<script type="text/javascript" src="/Admin/assets/js/load.js"></script>
+<script type="text/javascript" src="/Admin/assets/js/main.js"></script>
 
 
 <script type="text/javascript">

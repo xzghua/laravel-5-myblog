@@ -16,22 +16,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('home','Admin\HomeController');
-Route::resource('article','Admin\ArticleController');
-Route::resource('category','Admin\CategoryController');
-Route::resource('tag','Admin\TagController');
+Route::group(['middleware' => 'auth'],function(){
 
-Route::get('autoCompleteTags','Admin\TagController@autoFillTags');
+    Route::resource('home','Admin\HomeController');
+    Route::resource('article','Admin\ArticleController');
+    Route::resource('category','Admin\CategoryController');
+    Route::resource('tag','Admin\TagController');
 
-//登陆认证
-Route::post('login', 'Auth\AuthController@postLogin');
-Route::get('login', 'Auth\AuthController@getLogin');
+    Route::get('autoCompleteTags','Admin\TagController@autoFillTags');
 
-Route::get('logout', 'Auth\AuthController@getLogout');
+    Route::get('logout', 'Auth\AuthController@getLogout');
+
+    Route::post('uploadPhotos','Admin\ArticleController@uploadPhotosByEditor');
+});
+
+
+    //登陆认证
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('/auth/login', 'Auth\AuthController@getLogin');
+
 
 
 //注册
-Route::get('register', 'Auth\AuthController@getRegister');
-Route::post('register', 'Auth\AuthController@postRegister');
+    Route::get('register', 'Auth\AuthController@getRegister');
+    Route::post('register', 'Auth\AuthController@postRegister');
 
-Route::post('uploadPhotos','Admin\ArticleController@uploadPhotosByEditor');
+
+
+

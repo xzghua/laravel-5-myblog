@@ -48,9 +48,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">文章内容</label>
+                    <label class="col-sm-3 control-label" for="content">文章内容</label>
                     <div class="col-sm-6" id="test-editormd">
-                        <textarea  id="" cols="30" rows="10">{{$article['content']}}</textarea>
+                        <textarea  id="content" cols="30" rows="10">{{$article['content']}}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

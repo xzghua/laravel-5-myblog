@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Yela</title>
+    <title>叶落山城秋</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -93,7 +93,7 @@
             <ul style="margin-right:0;" class="nav navbar-nav navbar-right">
                 <li>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" class="admin-pic img-circle" src="/Admin/assets/img/logo.png">Hi, Yela <b class="caret"></b>
+                        <img alt="" class="admin-pic img-circle" src="/Admin/assets/img/logo.png">Hi, {!! \Illuminate\Support\Facades\Auth::user()->name!!} <b class="caret"></b>
                     </a>
                     <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                         <li>
@@ -105,8 +105,8 @@
                                 <span class="entypo-vcard"></span>&#160;&#160;Account Setting</a>
                         </li>
                         <li>
-                            <a href="#">
-                                <span class="entypo-lifebuoy"></span>&#160;&#160;Help</a>
+                            <a href="/logout">
+                                <span class="entypo-lifebuoy"></span>&#160;&#160;logout</a>
                         </li>
                     </ul>
                 </li>
@@ -158,7 +158,7 @@
     <div class="dark">
         <form action="#">
                 <span>
-                    <input type="text" name="search" value="" class="search rounded id_search" placeholder="Search Menu..." autofocus="">
+                    <input type="text" name="search" value=""  class="search rounded id_search" placeholder="Search Menu..." autofocus="">
                 </span>
         </form>
     </div>
@@ -211,7 +211,7 @@
                     <li>
                         <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
 
-                            <span class="widget-menu"></span>
+                            <span class="design-kit"></span>
                             <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
 
                         </a>
@@ -224,6 +224,9 @@
                         <ul>
                             <li>
                                 <a class="tooltip-tip2 " href="/category" title="分类列表"><i class="icon-media-record"></i><span>分类列表</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 " href="/category/create" title="新建分类"><i class="icon-media-record"></i><span>新建分类</span></a>
                             </li>
                         </ul>
                     </li>
@@ -253,6 +256,94 @@
 
                 </ul>
 
+                <ul id="menu-showhide" class="topnav menu-left-nest">
+                    <li>
+                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
+
+                            <span class="component"></span>
+                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
+
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a class="tooltip-tip" href="#" title="UI Element">
+                            <i class="icon-monitor"></i>
+                            <span>UI Element</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Element"><i class="icon-attachment"></i><span>Element</span></a>
+                            </li>
+                            <li><a class="tooltip-tip2 ajax-load" href="" title="Button"><i class="icon-view-list-large"></i><span>Button</span> <div class="noft-blue-number">10</div></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Tab & Accordion"><i class="icon-folder"></i><span>Wizard</span><div class="noft-purple-number">3</div></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Calender"><i class="icon-calendar"></i><span>Calendar</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Tree View"><i class="icon-view-list"></i><span>Tree View</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Grids"><i class="icon-menu"></i><span>Grids</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Chart"><i class="icon-graph-pie"></i><span>Chart</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip ajax-load" href="" title="Typhoghrapy">
+                                    <i class="icon-information"></i>
+                                    <span>Typhoghrapy</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="Form">
+                            <i class="icon-document"></i>
+                            <span>Form</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Form Elements"><i class="icon-document-edit"></i><span>Form Elements</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Andvance Form"><i class="icon-map"></i><span>Andvance Form</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Text Editor"><i class="icon-code"></i><span>Text Editor</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="File Upload"><i class="icon-upload"></i><span>File Upload</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="tooltip-tip" href="#" title="Tables">
+                            <i class="icon-view-thumb"></i>
+                            <span>Tables</span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Table Static"><i class="entypo-layout"></i><span>Table Static</span></a>
+                            </li>
+                            <li>
+                                <a class="tooltip-tip2 ajax-load" href="" title="Table Dynamic"><i class="entypo-menu"></i><span>Table Dynamic</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a class="tooltip-tip ajax-load" href="" title="Map">
+                            <i class="icon-location"></i>
+                            <span>Map</span>
+
+                        </a>
+                    </li>
+                </ul>
 
 
                 <div class="side-dash">
@@ -329,7 +420,7 @@
                             <button type="button" class="close" data-dismiss="alert">×</button>
                             <span class="tittle-alert entypo-info-circled"></span>
                             Welcome back,&nbsp;
-                            <strong>Dave mattew!</strong>&nbsp;&nbsp;Your last sig in at Yesterday, 16:54 PM
+                            <strong>{{\Illuminate\Support\Facades\Auth::user()->name}}</strong>&nbsp;&nbsp;Your last sig in at what time I do not know
                         </div>
 
 
@@ -362,7 +453,7 @@
             <li class="pull-right">
                 <div class="input-group input-widget">
 
-                    <input style="border-radius:15px" type="text" placeholder="Search..." class="form-control">
+                    <input style="border-radius:15px" type="text" disabled placeholder="Search..." class="form-control">
                 </div>
             </li>
         </ul>

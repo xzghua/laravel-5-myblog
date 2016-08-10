@@ -85,7 +85,7 @@
 
                     <div class="or-box">
 
-                        <center><span class="text-center login-with">Login or <b>Sign Up</b></span></center>
+                        <center><span class="text-center login-with"><a href="/auth/login"><b> Login</b></a> or Sign Up</span></center>
                         <div class="row">
                             <div class="col-md-6 row-block">
                                 <a href="index.html" class="btn btn-facebook btn-block">

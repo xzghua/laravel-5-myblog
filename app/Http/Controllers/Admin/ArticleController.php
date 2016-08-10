@@ -54,7 +54,7 @@ class ArticleController extends Controller
         $data = [
             'title'     => trim(Input::get('title')),
             'content'   => Input::get('test-editormd-markdown-doc'),
-            'user_id'   => /*Auth::user()->id*/ '2' //还没写登陆
+            'user_id'   => Auth::user()->id
         ];
         $tags = Input::get('tag');
         $mergeTags = Article::attachThisTags($tags);
@@ -125,7 +125,7 @@ class ArticleController extends Controller
         $data = [
             'title'     => trim($request->get('title')),
             'content'   => $request->get('test-editormd-markdown-doc'),
-            'user_id'   => /*Auth::user()->id*/ '2' //还没写登陆
+            'user_id'   => Auth::user()->id
         ];
 
         $tags = Input::get('tag');
@@ -164,7 +164,19 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         //
-        dd($id.'删除');
+        try {
+            if ( Article::destroy($id)) {
+                reminder()->success(config("code.".Article::ARTICLE_DELETE_SUCCESS),'删除成功');
+                return redirect()->route('article.index');
+            } else {
+                reminder()->error(config("code.".Article::ARTICLE_DELETE_ERROR),'操作失败');
+                return redirect()->route('article.index');
+            }
+
+        } catch (\Exception $e) {
+            reminder()->error(config("code.".Article::ARTICLE_DELETE_ERROR),'操作失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
     }
 
 

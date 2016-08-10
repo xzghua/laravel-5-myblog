@@ -4,5 +4,5 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
 var dayNames = ["Sun, ", "Mon, ", "Tue, ", "Wed, ", "Thu, ", "Fri, ", "Sat, "]
 
 var newDate = new Date();
-newDate.setDate(newDate.getDate() + 1);
+newDate.setDate(newDate.getDate());
 $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());

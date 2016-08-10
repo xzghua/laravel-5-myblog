@@ -158,11 +158,11 @@
     font-size: 9px!important;
 }
 .widget-menu:before {
-    content:"Widget Menu" !important;
+    content:"Article" !important;
 }
 .design-kit:before {
-    content:"Design Kit Menu" !important;
+    content:"Category" !important;
 }
 .component:before {
-    content:"Component Kit Menu" !important;
+    content:"Tag" !important;
 }
