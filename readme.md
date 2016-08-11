@@ -12,4 +12,4 @@
 
 
 
-- 2016年08月11日 后台效果图 ![后台效果图](https://pan.baidu.com/s/1eRU04ue)
+- 2016年08月11日 后台效果图 ![后台效果图](tp://obq9881x1.bkt.clouddn.com/myblog.png)
