@@ -105,3 +105,36 @@ var articleForm = $('.articleForm').validate({
         }
     }
 });
+
+var linkForm = $('.linkForm').validate({
+   rules:{
+       name:{
+           required:true,
+           maxlength:30
+       },
+       link:{
+           required:true,
+           url:true
+       },
+       ordering:{
+           required:true,
+           digits:true,
+           min:0
+       }
+   },
+    messages:{
+        name:{
+            required:'请输入友链名',
+            maxlength:'超出最大长度'
+        },
+        link:{
+            required:'请输入友链地址',
+            url:'请输入正确的地址'
+        },
+        ordering:{
+            required:'请输入序号(重叠不影响)',
+            digits:'请输入整数',
+            min:'请输入大于或等于0的整数'
+        }
+    }
+});

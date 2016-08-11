@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Link;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Mockery\CountValidator\Exception;
 
 class LinkController extends Controller
 {
@@ -17,6 +18,12 @@ class LinkController extends Controller
     public function index()
     {
         //
+        $link = Link::orderBy('ordering','asc')
+            ->paginate(12);
+
+        $data['link'] = $link;
+        return view('Admin.Setting.Link.index',$data);
+
     }
 
     /**
@@ -27,6 +34,7 @@ class LinkController extends Controller
     public function create()
     {
         //
+        return view('Admin.Setting.Link.create');
     }
 
     /**
@@ -38,6 +46,18 @@ class LinkController extends Controller
     public function store(Request $request)
     {
         //
+        try {
+            if (Link::create($request->all())) {
+                reminder()->success(config("code.".Link::LINK_SAVE_SUCCESS),'创建成功');
+                return redirect()->route('link.index');
+            }
+
+        } catch (Exception $e) {
+            reminder()->error(config("code.".Link::LINK_SAVE_ERROR), '操作失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -49,6 +69,14 @@ class LinkController extends Controller
     public function show($id)
     {
         //
+        if (!Link::find($id)) {
+            reminder()->error(config("code.".Link::LINK_ID_NOT_EXIST), '操作失败');
+            return redirect()->back();
+        }
+
+        $data['link'] = Link::find($id)->toArray();
+        return view('Admin.Setting.Link.edit',$data);
+
     }
 
     /**
@@ -72,6 +100,24 @@ class LinkController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        unset($data['_method']);
+        unset($data['_token']);
+        try {
+            if (Link::where('id',$id)->update($data)) {
+                reminder()->success(config("code.".Link::LINK_SAVE_SUCCESS),'创建成功');
+                return redirect()->route('link.index');
+            }
+
+        } catch (Exception $e) {
+            reminder()->error(config("code.".Link::LINK_SAVE_ERROR), '操作失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
+
+        return redirect()->back();
+
+
+
     }
 
     /**
@@ -83,5 +129,17 @@ class LinkController extends Controller
     public function destroy($id)
     {
         //
+        try {
+            if (Link::destroy($id)) {
+                reminder()->success(config("code.".Link::LINK_DELETE_SUCCESS),'操作成功');
+                return redirect()->route('link.index');
+            }
+
+        } catch (Exception $e) {
+            reminder()->error(config("code.".Link::LINK_DELETE_ERROR), '操作失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
+
+        return redirect()->back();
     }
 }

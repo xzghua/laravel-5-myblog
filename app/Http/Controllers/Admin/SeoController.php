@@ -19,7 +19,8 @@ class SeoController extends Controller
     public function index()
     {
         //
-        $data['seo'] = Seo::all()->toArray()['0'];
+        $seo = Seo::all()->toArray();
+        $data['seo'] = empty($seo) ? $seo : $seo['0'];
         return view('Admin.Setting.Seo.index',$data);
     }
 
@@ -62,11 +63,11 @@ class SeoController extends Controller
            }
 
         } catch (Exception $e) {
-            reminder()->success(config("code.".Seo::SEO_SAVE_ERROR), '操作失败');
+            reminder()->error(config("code.".Seo::SEO_SAVE_ERROR), '操作失败');
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
 
-        reminder()->success(config("code.".Seo::SEO_SAVE_ERROR), '操作失败');
+        reminder()->error(config("code.".Seo::SEO_SAVE_ERROR), '操作失败');
         return redirect()->route('seo.index');
     }
 
