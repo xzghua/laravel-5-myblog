@@ -12,4 +12,4 @@
 
 
 
-- 2016年08月11日 后台效果图 ![后台效果图](https://github.com/Yela528/laravel-5-myblog/tree/master/public/Admin/assets/img/myblog.png)
+- 2016年08月11日 后台效果图 ![后台效果图](laravel-5-myblog/public/Admin/assets/img/myblog.png)
