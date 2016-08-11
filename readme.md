@@ -12,4 +12,4 @@
 
 
 
-- 2016年08月11日 后台效果图 ![后台效果图](laravel-5-myblog/public/Admin/assets/img/myblog.png)
+- 2016年08月11日 后台效果图 ![后台效果图](http://obq9881x1.bkt.clouddn.com/myblog.png)
