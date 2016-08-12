@@ -135,9 +135,10 @@ class Article extends Model
      * 整理文章表数据,用于前端展示
      * @date 2016年08月09日11:41:45
      * @param $allData
+     * @param $page
      * @return mixed
      */
-    public static function sortData($allData)
+    public static function sortData($allData,$page = 'Admin')
     {
         foreach ($allData as $key => $item) {
             $allData[$key]['author'] = $item['get_author']['name'];
@@ -153,6 +154,12 @@ class Article extends Model
             } else {
                 $allData[$key]['categories'] = '';
             }
+
+            if ($page != 'Admin') {
+                $parser = new \App\Http\Controllers\Admin\Parser();
+                $allData[$key]['content'] = cut_html_str($parser->makeHtml($item['content']),50);
+            }
+
         }
         return $allData;
     }

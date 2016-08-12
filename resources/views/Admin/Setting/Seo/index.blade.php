@@ -21,6 +21,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label" for="theme">主题文件名</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="theme"  name="theme" @if (!empty($seo)) value="{{$seo['theme']}}" @endif class="form-control round-input s_title">
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label" for="s_title">副标题</label>
                     <div class="col-sm-6">
                         <input type="text" id="s_title"  name="s_title" @if (!empty($seo)) value="{{$seo['s_title']}}" @endif class="form-control round-input s_title">

@@ -51,5 +51,5 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('register', 'Auth\AuthController@postRegister');
 
 
-
+    Route::get('index','Home\IndexController@index');
 

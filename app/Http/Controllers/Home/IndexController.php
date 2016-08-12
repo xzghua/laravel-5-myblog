@@ -1,15 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Home;
 
+use App\Models\Article;
+use App\Models\Category;
 use App\Models\Seo;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use Mockery\CountValidator\Exception;
 
-class SeoController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +21,23 @@ class SeoController extends Controller
     public function index()
     {
         //
+        $data['paginate'] = Article::orderBy('created_at','desc')
+            ->with('getAuthor')
+            ->with('getTags')
+            ->with('getCategories')
+            ->with('getViews')
+            ->paginate(2);
+        $data['article'] = Article::sortData($data['paginate']->toArray()['data'],'Home');
+
         $seo = Seo::all()->toArray();
         $data['seo'] = empty($seo) ? $seo : $seo['0'];
-        return view('Admin.Setting.Seo.index',$data);
+        $theme = empty($data['seo']['theme']) ? 'default' : $data['seo']['theme'];
+
+        $data['tag'] = Tag::all()->toArray();
+        $data['category'] = Category::getTreeHtml(Category::all()->toArray());
+
+//        dd($data);
+        return view("Home.$theme.index",$data);
     }
 
     /**
@@ -43,33 +59,6 @@ class SeoController extends Controller
     public function store(Request $request)
     {
         //
-        $data = [
-            'title'         => trim($request->get('title')),
-            'theme'         => trim($request->get('theme')),
-            's_title'       => trim($request->get('s_title')),
-            'description'   => trim($request->get('description')),
-            'seo_key'       => trim($request->get('seo_key')),
-            'seo_des'       => trim($request->get('seo_des')),
-            'record_number' => trim($request->get('record_number')),
-        ];
-
-        try {
-            if (!empty(Seo::all()->toArray())) {
-                DB::table('system')->truncate();
-            }
-
-           if (Seo::create($data)) {
-               reminder()->success(config("code.".Seo::SEO_SAVE_SUCCESS), '操作成功');
-               return redirect()->route('seo.index');
-           }
-
-        } catch (Exception $e) {
-            reminder()->error(config("code.".Seo::SEO_SAVE_ERROR), '操作失败');
-            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
-        }
-
-        reminder()->error(config("code.".Seo::SEO_SAVE_ERROR), '操作失败');
-        return redirect()->route('seo.index');
     }
 
     /**
