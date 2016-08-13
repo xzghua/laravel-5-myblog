@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    Reminder::success('Hi! this is Reminder', 'Hello', ["positionClass" => "toast-bottom-right"]);
-    return view('welcome');
-});
+
 
 Route::group(['middleware' => 'auth'],function(){
 
@@ -36,15 +33,10 @@ Route::group(['middleware' => 'auth'],function(){
     Route::post('uploadPhotos','Admin\ArticleController@uploadPhotosByEditor');
 
 
-
 });
-
-
     //登陆认证
     Route::post('login', 'Auth\AuthController@postLogin');
     Route::get('/auth/login', 'Auth\AuthController@getLogin');
-
-
 
 //注册
     Route::get('register', 'Auth\AuthController@getRegister');
@@ -52,4 +44,8 @@ Route::group(['middleware' => 'auth'],function(){
 
 
     Route::get('index','Home\IndexController@index');
-
+    Route::get('/','Home\IndexController@index');
+    Route::get("detail/{id}",'Home\IndexController@getDetail');
+    Route::get("categories/{cate_name}",'Home\IndexController@getCategories');
+    Route::get("tags/{tag_name}",'Home\IndexController@getTags');
+    Route::get("about",'Home\IndexController@getAbout');

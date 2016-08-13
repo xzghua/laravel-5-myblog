@@ -289,12 +289,10 @@
                             </li>
                             <li><a class="tooltip-tip2 ajax-load" href="/link" title="Button"><i class="icon-view-list-large"></i><span>友链设置</span> </a>
                             </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="" title="Tab & Accordion"><i class="icon-folder"></i><span>系统设置</span></a>
-                            </li>
-                            <li>
-                                <a class="tooltip-tip2 ajax-load" href="/navigation" title="Calender"><i class="icon-calendar"></i><span>导航设置</span></a>
-                            </li>
+
+                            {{--<li>--}}
+                                {{--<a class="tooltip-tip2 ajax-load" href="/navigation" title="Calender"><i class="icon-calendar"></i><span>导航设置</span></a>--}}
+                            {{--</li>--}}
 
                         </ul>
                     </li>

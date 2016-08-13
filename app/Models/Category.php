@@ -60,18 +60,6 @@ class Category extends Model
         return $getTreeArr;
     }
 
-    public static function getTreeHtml( $data, $pId='0' ) {
-        $html = '';
-        foreach ( $data as $k => $v ) {
-            if ( $v['parent_id'] == $pId ) {
-                $html .= "<li> <a class=\"sb-toggle-submenu\">" . $v['cate_name'];
-                $html .= self::getTreeHtml( $data, $v['id'] );
-                $html = $html . "<span class=\"sb-caret\"></span></a></li>";
-            }
-        }
-        return $html ? '<ul class="sb-submenu">' . $html . '</ul>' : $html;
-    }
-
     /**
      * 通过遍历拿到分类数组(此处参考他人写法 laravel-5-blog)
      * @date 2016年08月08日12:00:53
@@ -136,6 +124,14 @@ class Category extends Model
             }
         }
         return false;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function getArticle()
+    {
+        return $this->belongsToMany('App\Models\Article','iphpt_categories','cate_id','art_id');
     }
 
 }
