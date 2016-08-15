@@ -55,7 +55,7 @@
 
 
             <div id="logo-mobile" class="visible-xs">
-                <h1>Apricot<span>v1.3</span></h1>
+                <h1>IPHPT<span>v1.3</span></h1>
             </div>
 
         </div>
@@ -64,7 +64,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#"><i data-toggle="tooltip" data-placement="bottom" title="Help" style="font-size:20px;" class="icon-help tooltitle"></i></a>
+                <li><a href="/" target="_blank"><i data-toggle="tooltip" data-placement="bottom" title="首页" style="font-size:20px;" class="icon-help tooltitle"></i></a>
                 </li>
 
             </ul>
@@ -86,6 +86,7 @@
                     <li class="meridiem"></li>
                 </ul>
                 <ul id="nt-title">
+                    <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=10" width="300" height="25" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" ></iframe>
                     {{--<div>天气</div>--}}
                 </ul>
             </div>
@@ -97,13 +98,10 @@
                     </a>
                     <ul style="margin-top:14px;" role="menu" class="dropdown-setting dropdown-menu">
                         <li>
-                            <a href="#">
-                                <span class="entypo-user"></span>&#160;&#160;My Profile</a>
+                            <a href="/home">
+                                <span class="entypo-user"></span>&#160;&#160;home</a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <span class="entypo-vcard"></span>&#160;&#160;Account Setting</a>
-                        </li>
+
                         <li>
                             <a href="/logout">
                                 <span class="entypo-lifebuoy"></span>&#160;&#160;logout</a>
@@ -149,7 +147,7 @@
 <!-- SIDE MENU -->
 <div id="skin-select">
     <div id="logo">
-        <h1>Apricot<span>v1.3</span></h1>
+        <a href="/" target="_blank">  <h1>IPHPT<span>v1.3</span></h1> </a>
     </div>
 
     <a id="toggle">
@@ -192,6 +190,13 @@
                         </a>
                     </li>
                     <li>
+                        <a class="tooltip-tip ajax-load" href="/home" title="首页">
+                            <i class="icon-window"></i>
+                            <span>后台首页</span>
+
+                        </a>
+                    </li>
+                    <li>
                         <a class="tooltip-tip ajax-load" href="#" title="写文章">
                             <i class="icon-document-edit"></i>
                             <span>文章</span>
@@ -205,16 +210,6 @@
                                 <a class="tooltip-tip2 ajax-load" href="/article/create" title="Blog Detail"><i class="entypo-newspaper"></i><span>写文章</span></a>
                             </li>
                         </ul>
-                    </li>
-                </ul>
-                <ul id="menu-showhide" class="topnav menu-left-nest">
-                    <li>
-                        <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
-
-                            <span class="design-kit"></span>
-                            <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
-
-                        </a>
                     </li>
                     <li>
                         <a class="tooltip-tip" href="#" title="分类管理">
@@ -234,7 +229,7 @@
                     <li>
                         <a href="#" style="border-left:0px solid!important;" class="title-menu-left">
 
-                            <span class="component"></span>
+                            <span class="design-kit"></span>
                             <i data-toggle="tooltip" class="entypo-cog pull-right config-wrap"></i>
 
                         </a>
@@ -246,15 +241,15 @@
                         </a>
                         <ul>
                             <li>
-                                <a class="tooltip-tip2 " href="/category" title="分类列表"><i class="icon-media-record"></i><span>分类列表</span></a>
+                                <a class="tooltip-tip2 " href="/category" title="分类列表"><i class="entypo-menu"></i><span>分类列表</span></a>
                             </li>
                             <li>
-                                <a class="tooltip-tip2 " href="/category/create" title="新建分类"><i class="icon-media-record"></i><span>新建分类</span></a>
+                                <a class="tooltip-tip2 " href="/category/create" title="新建分类"><i class="icon-document-edit"></i><span>新建分类</span></a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a class="tooltip-tip" href="#" title="标签管理">
+                        <a class=" tooltip-tip tooltip-tip" href="#" title="标签管理">
                             <i class="icon-view-thumb"></i>
                             <span>标签管理</span>
                         </a>
@@ -466,7 +461,7 @@
                     <p id="clock">
                 </div>
                 <div class="copyright">Make with Love
-                    <span class="entypo-heart"></span>2014 <a href="http://ylsc633.com">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
+                    <span class="entypo-heart"></span>2014 <a href="https://github.com/Yela528/laravel-5-myblog">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
                 <div class="devider-footer"></div>
 
             </div>

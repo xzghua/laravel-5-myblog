@@ -12,40 +12,37 @@
         <div style="width: 30%">
             <ul class="list-group">
                 <li class="list-group-item text-left">
-                    <span class="entypo-user"></span>&nbsp;&nbsp;Profile</li>
+                    <span class="entypo-user"></span>&nbsp;&nbsp;{{\Illuminate\Support\Facades\Auth::user()->name}}</li>
                 <li class="list-group-item text-center">
                     <img src="Admin/assets/img/logo.png" alt="" style="width: 20%;height: 20%" class="img-circle img-responsive img-profile">
 
                 </li>
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                        <strong>Ratings</strong>
+                        <strong>邮箱</strong>
                     </span>
-                    234234
+                    {{\Illuminate\Support\Facades\Auth::user()->email}}
                 </li>
 
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                        <strong>Joined</strong>
+                        <strong>主机名</strong>
                     </span>
-                    2.13.2014
+                    {{$_SERVER['SERVER_NAME']}}
                 </li>
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                        <strong>Last seen</strong>
-                    </span>Yesterday</li>
+                        <strong>服务器的IP地址</strong>
+                    </span>{{$_SERVER['SERVER_ADDR']}}</li>
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                        <strong>Nickname</strong>
-                    </span>themesmile</li>
+                        <strong>当前用户的IP地址</strong>
+                    </span>{{$_SERVER['REMOTE_ADDR']}}</li>
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                    <strong>Nickname</strong>
-                    </span>themesmile</li>
-                <li class="list-group-item text-right">
-                    <span class="pull-left">
-                    <strong>Nickname</strong>
-                    </span>themesmile</li>
+                    <strong>浏览器</strong>
+                    </span>{{$_SERVER['HTTP_USER_AGENT'] }}</li>
+
             </ul>
 
         </div>

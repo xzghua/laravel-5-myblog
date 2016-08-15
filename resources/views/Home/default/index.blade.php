@@ -48,7 +48,7 @@
                                   </time>
                                     |
                                     @foreach($item['get_tags'] as $v)
-                                        <a href="/tag/{{$v['tag_name']}}">{{$v['tag_name']}}</a>,
+                                        <a href="/tag/{{$v['tag_name']}}">{{$v['tag_name']}};</a>
                                     @endforeach
                                     |
                                     <span>浏览数:({{$item['views']}})</span>

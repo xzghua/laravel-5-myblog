@@ -158,11 +158,11 @@
     font-size: 9px!important;
 }
 .widget-menu:before {
-    content:"Article" !important;
+    content:"Article and comment" !important;
 }
 .design-kit:before {
-    content:"Category" !important;
+    content:"Category and tip" !important;
 }
 .component:before {
-    content:"Tag" !important;
+    content:"system" !important;
 }

@@ -54,68 +54,104 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="account-box">
-                    <form method="POST" action="/register">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
-                        <div class="form-group">
-                            <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
-                            <label for="inputUsernameEmail">用户名</label>
-                            <input type="text" name="name" value="{{ old('name') }}" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
-                            <label for="inputUsernameEmail">邮箱</label>
-                            <input type="email" name="email" value="{{ old('email') }}" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <!--a href="#" class="pull-right label-forgot">Forgot password?</a-->
-                            <label for="inputPassword">密码</label>
-                            <input type="password" name="password" id="password" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <!--a href="#" class="pull-right label-forgot">Forgot password?</a-->
-                            <label for="inputPassword">确认密码</label>
-                            <input type="password" name="password_confirmation" class="form-control">
+
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label class="col-md-3 control-label">用户名</label>
+
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
-                        <button class="btn btn btn-primary pull-right" type="submit">
-                            注  册
-                        </button>
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label class="col-md-3 control-label">邮箱</label>
+
+                            <div class="col-md-9">
+                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label class="col-md-3 control-label">密码</label>
+
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="password">
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                            <label class="col-md-3 control-label">确认密码</label>
+
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="password_confirmation">
+
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-btn fa-user"></i>Register
+                                </button>
+                            </div>
+                        </div>
                     </form>
-                    <a class="forgotLnk" href="index.html"></a>
-
+                    <a class="forgotLnk" href=""></a>
                     <div class="or-box">
-
                         <center><span class="text-center login-with"><a href="/auth/login"><b> Login</b></a> or Sign Up</span></center>
-                        <div class="row">
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-facebook btn-block">
-                                    <span class="entypo-facebook space-icon"></span>Facebook</a>
-                            </div>
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-twitter btn-block">
-                                    <span class="entypo-twitter space-icon"></span>Twitter</a>
-
-                            </div>
-
-                        </div>
-                        <div style="margin-top:25px" class="row">
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>
-                            </div>
-                            <div class="col-md-6 row-block">
-                                <a href="index.html" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>
-                            </div>
-
-                        </div>
                     </div>
+                        {{--<div class="or-box">--}}
+
+                        {{--<center><span class="text-center login-with"><a href="/auth/login"><b> Login</b></a> or Sign Up</span></center>--}}
+                        {{--<div class="row">--}}
+                            {{--<div class="col-md-6 row-block">--}}
+                                {{--<a href="#" class="btn btn-facebook btn-block">--}}
+                                    {{--<span class="entypo-facebook space-icon"></span>Facebook</a>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 row-block">--}}
+                                {{--<a href="#" class="btn btn-twitter btn-block">--}}
+                                    {{--<span class="entypo-twitter space-icon"></span>Twitter</a>--}}
+
+                            {{--</div>--}}
+
+                        {{--</div>--}}
+                        {{--<div style="margin-top:25px" class="row">--}}
+                            {{--<div class="col-md-6 row-block">--}}
+                                {{--<a href="#" class="btn btn-google btn-block"><span class="entypo-gplus space-icon"></span>Google +</a>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 row-block">--}}
+                                {{--<a href="#" class="btn btn-instagram btn-block"><span class="entypo-instagrem space-icon"></span>Instagram</a>--}}
+                            {{--</div>--}}
+
+                        {{--</div>--}}
+                    {{--</div>--}}
                     <hr>
-                    <div class="row-block">
-                        <div class="row">
-                            <div class="col-md-12 row-block">
-                                <a href="index.html" class="btn btn-primary btn-block">Create New Account</a>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="row-block">
                         <div class="row">
                         </div>

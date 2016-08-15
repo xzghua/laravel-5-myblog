@@ -112,7 +112,7 @@
 
             <ul class="sb-submenu">
                 @foreach( $category as $item)
-                    <li><a href="/categories/{{$item['cate_name']}}/" class="animsition-link">{{$item['newHtml']}}<small>(2)</small></a></li>
+                    <li><a href="/categories/{{$item['cate_name']}}/" class="animsition-link">{{$item['newHtml']}}</a></li>
                 @endforeach
 
             </ul>
