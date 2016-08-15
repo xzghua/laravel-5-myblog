@@ -39,7 +39,7 @@
     <!-- Custom stylesheet, (add custom styles here, always load last) -->
     <!-- Load our stylesheet for IE8 -->
     <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/Home/default//css/ie8.css" />
+    <link rel="stylesheet" type="text/css" href="/Home/default/css/ie8.css" />
     <![endif]-->
 
     <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->

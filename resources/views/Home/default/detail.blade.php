@@ -13,9 +13,9 @@
       <time datetime="{{$article['created_at']}}" itemprop="datePublished">
           {{$article['created_at']}}
       </time>
-    |
+    |<i class="icon-tag"> </i>
     @foreach( $article['get_tags'] as $item)
-        <a href='/tags/{{$item['tag_name']}}/' ><i class="icon-tag"> </i> {{$item['tag_name']}}</a>,
+        <a href='/tags/{{$item['tag_name']}}/' > {{$item['tag_name']}}</a>,
     @endforeach
 
 </span>
