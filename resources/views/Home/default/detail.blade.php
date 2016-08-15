@@ -15,7 +15,7 @@
       </time>
     |
     @foreach( $article['get_tags'] as $item)
-        <a href='/tags/{{$item['tag_name']}}/'>{{$item['tag_name']}}</a>,
+        <a href='/tags/{{$item['tag_name']}}/' ><i class="icon-tag"> </i> {{$item['tag_name']}}</a>,
     @endforeach
 
 </span>
@@ -47,6 +47,22 @@
         </div>
     </section>
     <div class="duoshuo">
+        <div class="ds-share" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-images="/detail/{{$article['id']}}" data-content="{{$article['content']}}" data-url="/detail/{{$article['id']}}">
+            <div class="ds-share-inline">
+                <ul  class="ds-share-icons-16">
+
+                    <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+                    <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                    <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+                    <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+                    <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+                </ul>
+                <div class="ds-share-icons-more">
+                </div>
+            </div>
+        </div>
+
         <!-- 多说评论框 start -->
         <div class="ds-thread" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-url="/detail/{{$article['id']}}"></div>
         <!-- 多说评论框 end -->

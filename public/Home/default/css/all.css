@@ -3423,7 +3423,7 @@ footer .footer_bottom {
 	color: #fff;
 }
 .duoshuo {
-	width: 66%;
+	width: 40%;
 	margin: auto;
 }
 .ds-thread {
@@ -3441,10 +3441,11 @@ footer .footer_bottom {
 /* Import the font file with the icons in it */
 @font-face { font-family: 'icons'; src:  url('../fonts/icons.woff') format('woff'); font-weight: normal; font-style: normal; }
 /* Apply these base styles to all icons */
-.icon-feed:before, .icon-twitter:before, .icon-google-plus:before, .icon-facebook:before, .icon-sina-weibo, .icon-github{ font-family: 'icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; text-decoration: none; }
+.icon-feed:before, .icon-tag,.icon-twitter:before, .icon-google-plus:before, .icon-facebook:before, .icon-sina-weibo, .icon-github{ font-family: 'icons'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; text-decoration: none; }
 /* Each icon is created by inserting the corret character into the
    content of the :before pseudo element. Like a boss. */
 .icon-feed:before { content: "\e631"; }
+.icon-tag:before {content: "\e631"; }
 .icon-twitter:before { content: "\e630"; font-size: 1.1em; }
 .icon-google-plus:before { content: "\e62d"; }
 .icon-facebook:before { content: "\e62f"; }

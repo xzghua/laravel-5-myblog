@@ -219,7 +219,7 @@
                 <li><a href="https://github.com/Yela528/laravel-5-myblog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
 
 
-                <li><a href="https://twitter.com/1tsKieran" title="Twitter" target="_blank"><i class="icon-qq"></i></a>&nbsp;</li>
+                <li><a href="#" title="Twitter" target="_blank"><i class="icon-star"></i></a>&nbsp;</li>
 
 
 
