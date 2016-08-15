@@ -211,7 +211,7 @@
             <p>
                 &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By 叶落山城. All Rights Reserved.
             </p>
-            <p>Theme By <a href="http://go.kieran.top" target="_blank" style="color: #767D84">Kieran</a></p>
+            {{--<p>Theme By <a href="http://go.kieran.top" target="_blank" style="color: #767D84">Kieran</a></p>--}}
         </div>
         <div class="social">
             <ul>
