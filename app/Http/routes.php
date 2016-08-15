@@ -39,8 +39,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/auth/login', 'Auth\AuthController@getLogin');
 
 //注册
-    Route::get('register', 'Auth\AuthController@getRegister');
-    Route::post('register', 'Auth\AuthController@postRegister');
+//    Route::get('register', 'Auth\AuthController@getRegister');
+//    Route::post('register', 'Auth\AuthController@postRegister');
 
 
     Route::get('index','Home\IndexController@index');
