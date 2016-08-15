@@ -227,7 +227,10 @@
                 <li><a href="http://weibo.com/ylsc633/home?wvr=5" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
 
             </ul>
+            <script src="http://s95.cnzz.com/z_stat.php?id=1256842383&web_id=1256842383" language="JavaScript"></script>
+
         </div>
+
         <div class="clearfix"> </div>
     </div>
 </footer>
@@ -257,8 +260,6 @@
 <script src="/Home/default/js/scripts.js"></script><!-- Theme scripts -->
 {{--<script src="/Home/default/js/Parser.js"></script><!-- 解析markdown -->--}}
 
-
-<link rel="stylesheet" href="/Home/default/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/Home/default/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
     $('#intro').find('img').each(function(){
@@ -286,6 +287,8 @@
         });
 
     });
+
+
 </script>
 @yield('js')
 </body>
