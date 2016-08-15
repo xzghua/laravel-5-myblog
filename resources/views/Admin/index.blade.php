@@ -26,7 +26,7 @@
 
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                        <strong>主机名</strong>
+                        <strong>域名</strong>
                     </span>
                     {{$_SERVER['SERVER_NAME']}}
                 </li>
@@ -36,12 +36,29 @@
                     </span>{{$_SERVER['SERVER_ADDR']}}</li>
                 <li class="list-group-item text-right">
                     <span class="pull-left">
-                        <strong>当前用户的IP地址</strong>
+                        <strong>当前IP地址</strong>
                     </span>{{$_SERVER['REMOTE_ADDR']}}</li>
                 <li class="list-group-item text-right">
                     <span class="pull-left">
                     <strong>浏览器</strong>
                     </span>{{$_SERVER['HTTP_USER_AGENT'] }}</li>
+                <li class="list-group-item text-right">
+                    <span class="pull-left">
+                    <strong>服务器语言</strong>
+                    </span>{{getenv("HTTP_ACCEPT_LANGUAGE") }}
+                </li><li class="list-group-item text-right">
+                    <span class="pull-left">
+                    <strong>服务器端口</strong>
+                    </span>{{ $_SERVER['SERVER_PORT'] }}</li>
+                <li class="list-group-item text-right">
+                    <span class="pull-left">
+                    <strong>服务器操作系统</strong>
+                    </span><?php $os = explode(" ", php_uname()); echo $os[0];?></li>
+                <li class="list-group-item text-right">
+                    <span class="pull-left">
+                    <strong>内核版本</strong>
+                    </span><?php if('/'==DIRECTORY_SEPARATOR){echo $os[2];}else{echo $os[1];} ?>
+                </li>
 
             </ul>
 

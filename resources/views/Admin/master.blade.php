@@ -34,7 +34,7 @@
 </head>
 
 <body>
-<div id="awwwards" class="right black"><a href="http://www.ylsc633.com" target="_blank">best websites of the world</a></div>
+<div id="awwwards" class="right black"><a href="https://github.com/Yela528/laravel-5-myblog" target="_blank">best websites of the world</a></div>
 <!-- Preloader -->
 <div id="preloader">
     <div id="status">&nbsp;</div>
@@ -461,7 +461,7 @@
                     <p id="clock">
                 </div>
                 <div class="copyright">Make with Love
-                    <span class="entypo-heart"></span>2014 <a href="https://github.com/Yela528/laravel-5-myblog">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
+                    <span class="entypo-heart"></span>2014 <a href="https://iphpt.com">(Themesmile) Purchase This Item</a> All Rights Reserved</div>
                 <div class="devider-footer"></div>
 
             </div>
