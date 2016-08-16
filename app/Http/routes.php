@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get("categories/{cate_name}",'Home\IndexController@getCategories');
     Route::get("tags/{tag_name}",'Home\IndexController@getTags');
     Route::get("about",'Home\IndexController@getAbout');
+    Route::get("monthList",'Home\IndexController@getMonthArticle');
 
     //评论
     Route::get('getComment','Admin\CommentController@getCallBackComment');
+    Route::post('postComment','Admin\CommentController@postComment');

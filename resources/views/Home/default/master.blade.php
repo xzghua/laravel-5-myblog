@@ -133,8 +133,9 @@
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
+        <li><a href="/monthList" class="animsition-link" title="归档">归档</a></li>
+
         <li><a href="/about" class="animsition-link" title="about">About</a></li>
-        {{--<li><a href="atom.xml" class="animsition-link" title="rss">RSS</a></li>--}}
     </ul>
 </div>
 

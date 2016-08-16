@@ -10,8 +10,7 @@ use App\Models\Seo;
 use App\Models\Tag;
 use App\Models\View;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\View\
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 
@@ -23,6 +22,7 @@ class IndexController extends Controller
     public function index()
     {
         //
+        $this->getMonthArticle();
         $data['paginate'] = Article::orderBy('created_at','desc')
             ->with('getAuthor')
             ->with('getTags')
@@ -122,6 +122,23 @@ class IndexController extends Controller
         $data = $this->common();
         return view('Home.'.$data['theme'].".about",$data);
     }
+
+    public function getMonthArticle()
+    {
+        $data = $this->common();
+        $article = Article::all()->toArray();
+
+        $data['article'] = [];
+        foreach ( $article as $key => $value) {
+            $data['article'][date('Y-m',strtotime($value['created_at']))][] = $value;
+        }
+
+        return  view('Home.'.$data['theme'].".monthList",$data);
+    }
+
+
+
+
 
     /**
      * Show the form for creating a new resource.

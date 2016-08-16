@@ -9,17 +9,39 @@ use App\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {
-    /**
-     * @param  \Illuminate\Http\Request  $request
-     */
-    public function getCallBackComment(Request $request)
+    public $signNature = '';
+
+    public $callBackUrl = 'http://api.duoshuo.com/log/list.json';
+
+    public $shortName = 'iphpt';
+
+    public $secret      = 'e0dd247d8feab69c43985ab89d454016';
+
+
+
+    public function getCallBackComment()
     {
-        dd($request->all());
-        $short_name = $request->get('short_name');//多说二级域名
-        $secret     = $request->get('secret');//站点密钥
-//        $since_id   = $request->g
+        $ch = curl_init();
+
+        $url = $this->callBackUrl.'?short_name='.$this->shortName.'&secret='.$this->secret;
+
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_HEADER,0);
+
+        $output = curl_exec($ch);
+
+        return $output;
     }
 
+    public function postComment(Request $request)
+    {
+        if ($this->signNature == $request->get('signature')) {
+            $this->getCallBackComment();
+        } else {
+
+        }
+    }
 
 
 
