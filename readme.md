@@ -10,8 +10,8 @@
 - 2016年08月13日 前台大部分功能完成,只剩评论功能
 
 
-#####[博客网址](http://www.iphpt.com)
+#####<a href="http://www.iphpt.com" target='_blank'>博客网址</a>
 
 
 
-- 2016年08月11日 后台效果图 ![后台效果图](http://obq9881x1.bkt.clouddn.com/myblog.png)
+- 2016年08月11日 后台效果图 ![后台效果图](http://obq9881x1.bkt.clouddn.com/2016-08-16%2011-45-29%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png)
