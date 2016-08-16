@@ -47,7 +47,8 @@
         </div>
     </section>
     <div class="duoshuo">
-        <div class="ds-share" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-images="/detail/{{$article['id']}}" data-content="{{$article['content']}}" data-url="/detail/{{$article['id']}}">
+
+        <div class="ds-share flat" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-images="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}" data-content="{{$article['content']}}" data-url="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}">
             <div class="ds-share-inline">
                 <ul  class="ds-share-icons-16">
 
@@ -62,9 +63,8 @@
                 </div>
             </div>
         </div>
-
         <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-url="/detail/{{$article['id']}}"></div>
+        <div class="ds-thread" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-url="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}"></div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">

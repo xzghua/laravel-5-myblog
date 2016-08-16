@@ -212,7 +212,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="tooltip-tip" href="#" title="分类管理">
+                        <a class="tooltip-tip" href="#" title="评论管理">
                             <i class="icon-document-new"></i>
                             <span>评论管理</span>
                         </a>

@@ -27,6 +27,10 @@ Route::group(['middleware' => 'auth'],function(){
     //自动填充标签
     Route::get('autoCompleteTags','Admin\TagController@autoFillTags');
 
+    //评论
+    Route::resource('comment','Admin\CommentController');
+
+
     //退出
     Route::get('logout', 'Auth\AuthController@getLogout');
 
@@ -49,3 +53,6 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get("categories/{cate_name}",'Home\IndexController@getCategories');
     Route::get("tags/{tag_name}",'Home\IndexController@getTags');
     Route::get("about",'Home\IndexController@getAbout');
+
+    //评论
+    Route::post('postComment','Admin\CommentController@postCallBackComment');
