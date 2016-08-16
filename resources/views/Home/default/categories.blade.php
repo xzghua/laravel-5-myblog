@@ -4,7 +4,7 @@
     <!-- ============================ Hero Image =========================== -->
     {{--顶部大图--}}
     <section id="hero" class="scrollme">
-        <div class="container-fluid element-img" style="background: url(http://obq9881x1.bkt.clouddn.com/IMG_1403.JPG) no-repeat center center fixed;background-size: cover">
+        <div class="container-fluid element-img" style="background: url(http://obq9881x1.bkt.clouddn.com/ChMkJ1aCPNqISYs0AAVIO7QSVywAAGs2APmxisABUhT323.jpg) no-repeat center center fixed;background-size: cover">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
                     <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
