@@ -55,4 +55,4 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get("about",'Home\IndexController@getAbout');
 
     //评论
-    Route::post('postComment','Admin\CommentController@postCallBackComment');
+    Route::get('getComment','Admin\CommentController@getCallBackComment');

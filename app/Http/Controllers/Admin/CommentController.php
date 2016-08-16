@@ -12,8 +12,9 @@ class CommentController extends Controller
     /**
      * @param  \Illuminate\Http\Request  $request
      */
-    public function postCallBackComment(Request $request)
+    public function getCallBackComment(Request $request)
     {
+        dd($request->all());
         $short_name = $request->get('short_name');//多说二级域名
         $secret     = $request->get('secret');//站点密钥
 //        $since_id   = $request->g
