@@ -11,7 +11,7 @@
 
                 </div>
             </div>
-            <div class="col-md-8 col-md-offset-2" style="text-align: center">
+            <div class="col-md-8 col-md-offset-2" style="text-align: center;min-height: 600px">
                 <h1>归档</h1>
                 <hr class="nogutter" style="margin: 1px">
 
@@ -28,6 +28,7 @@
                     <hr class="nogutter" style="margin: 1px">
                 @endforeach
                 <div class="clearfix"></div>
+                <hr class="nogutter" >
 
             </div>
 
