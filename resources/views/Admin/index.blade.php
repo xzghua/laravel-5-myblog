@@ -9,7 +9,7 @@
 
 @section('content')
 
-        <div style="width: 30%">
+        <div style="width: 40%">
             <ul class="list-group">
                 <li class="list-group-item text-left">
                     <span class="entypo-user"></span>&nbsp;&nbsp;{{\Illuminate\Support\Facades\Auth::user()->name}}</li>

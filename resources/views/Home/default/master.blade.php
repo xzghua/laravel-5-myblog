@@ -27,7 +27,7 @@
     <meta name="keywords" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['seo_key']}}" />
 
     <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="/Home/default/img/logo2.png" type="image/ico">
+    <link rel="Shortcut Icon" href="/Home/default/img/nice.png" type="image/ico">
 
 
     <link rel="stylesheet" href="/Home/default/css/all.css" media="screen" type="text/css">
@@ -153,8 +153,8 @@
         <div class="container">
             <!-- Nav logo -->
             <div class="logo">
-                <a href="/" title="Logo" class="animsition-link">
-                    <img src="/Home/default/img/logo.png" alt="Logo" width="35px;"/>
+                <a href="/" title="iphpt" class="animsition-link">
+                    <img src="/Home/default/img/nice.png" alt="logo" width="35px;"/>
                 </a>
             </div>
             <!-- // Nav logo -->
