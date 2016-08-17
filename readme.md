@@ -15,9 +15,13 @@
 
 ###安装
 > git clone https://github.com/Yela528/laravel-5-myblog
+
 > composer install
+
 > 自行添加.env 文件
+
 > `php artisan key:generate`
+
 > 数据迁移 `php artisan migrate`
 
 这个博客是我没事自己对laravel框架里一些知识的探索，代码写的不是很严谨，有问题欢迎指导，也希望大牛能给我指引一下路
@@ -29,7 +33,7 @@
 
 
 
-### 以下是之前开发进程
+##### 以下是之前开发进程
 
 - ~~之前的iphpt，本来后台都写好了很多功能，因为不小心格了系统，数据库和原文件都没了，只剩下github上的代码了，遂，再写个玩玩吧~~
 
