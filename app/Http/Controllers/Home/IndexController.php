@@ -10,31 +10,41 @@ use App\Models\Seo;
 use App\Models\Tag;
 use App\Models\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Cache;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * @param Request $request
+     * @return View
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $this->getMonthArticle();
-        $data['paginate'] = Article::orderBy('created_at','desc')
-            ->with('getAuthor')
-            ->with('getTags')
-            ->with('getCategories')
-            ->with('getViews')
-            ->paginate(12);
+        $page = empty($request->get('page')) ? 1 : $request->get('page');
+        if (Cache::tags(['paginate',$page])->get($page)) {
+            $data['paginate'] = Cache::tags(['paginate',$page])->get($page);
+        } else {
+            $data['paginate'] = Article::orderBy('created_at','desc')
+               ->with('getAuthor')
+               ->with('getTags')
+               ->with('getCategories')
+               ->with('getViews')
+               ->paginate(12, ['*'], 'page', $page);
+
+            Cache::tags(['paginate',$page])->put($page,$data['paginate'],100000);
+        }
+
         $data['article'] = Article::sortData($data['paginate']->toArray()['data'],'Home');
         $data = array_merge($data,$this->common());
+
         return view("Home.".$data['theme'].".index",$data);
     }
 
     /**
+     * 文章详细页
      * @param $id
      * @return View
      */
@@ -43,13 +53,20 @@ class IndexController extends Controller
         $data = $this->common();
         View::where('art_id',$id)->increment('view_num',1);
 
-        $data['article'] =  Article::where('id',$id)
-            ->with('getAuthor')
-            ->with('getTags')
-            ->with('getCategories')
-            ->with('getViews')
-            ->first()
-            ->toArray();
+        if (Cache::tags(['articleDetail',$id])->get($id)) {
+            $data['article'] = Cache::tags(['articleDetail',$id])->get($id);
+        } else {
+            $data['article'] = Article::where('id',$id)
+                ->with('getAuthor')
+                ->with('getTags')
+                ->with('getCategories')
+                ->with('getViews')
+                ->first()
+                ->toArray();
+
+            Cache::tags(['articleDetail',$id])->put($id,$data['article'],100000);
+        }
+
         $parser = new Parser();
         $data['article']['content'] = $parser->makeHtml($data['article']['content']);
         $data['last'] = Article::where('id','<',$id)
@@ -73,11 +90,21 @@ class IndexController extends Controller
     public function common()
     {
 
-        $seo = Seo::all()->toArray();
+        $seo = Cache::rememberForever('seo',function(){
+           return Seo::all()->toArray();
+
+        });
+
         $data['seo'] = empty($seo) ? $seo : $seo['0'];
         $data['theme'] = empty($data['seo']['theme']) ? 'default' : $data['seo']['theme'];
-        $data['link'] = Link::all()->toArray();
-        $data['tag'] = Tag::all()->toArray();
+        $data['link'] = Cache::rememberForever('link',function(){
+            return Link::all()->toArray();
+        });
+
+        $data['tag'] = Cache::rememberForever('tag',function(){
+            return Tag::all()->toArray();
+        });
+
         $data['category'] = Category::getCateArr();
 
         return $data;
@@ -123,6 +150,10 @@ class IndexController extends Controller
         return view('Home.'.$data['theme'].".about",$data);
     }
 
+    /**
+     * 归档文章
+     * @return View
+     */
     public function getMonthArticle()
     {
         $data = $this->common();

@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="/Admin/assets/css/mail.css">
     <link rel="stylesheet" href="/Admin/assets/css/toastr/toastr.min.css">
 
+
+
 @yield('css')
 
 
@@ -299,9 +301,22 @@
 
                 <div class="side-dash">
                     <h3>
+                        <span>缓存</span>
+
+                    </h3>
+                    <ul class="side-dashh-list">
+                        <li>
+                            {{--<div class="linebar">--}}
+                            <button class="btn btn-default  button test disable" data-color="#ff0011" data-opacity="0.9">点击清除缓存</button>
+                            {{--</div>--}}
+                        </li>
+                    </ul>
+                    <h3>
                         <span>Device</span>
                     </h3>
                     <ul class="side-dashh-list">
+
+
                         <li>Avg. Traffic
                             <span>25k<i style="color:#44BBC1;" class="fa fa-arrow-circle-up"></i>
                                 </span>
@@ -560,6 +575,10 @@
 <script src="/Admin/assets/js/flatvideo/jquery.fitvids.js"></script>
 <script src="/Admin/assets/js/toastr/toastr.min.js"></script>
 
+
+<script type='text/javascript' src='/Admin/assets/js/button/progressbutton.jquery.js'></script>
+
+
 @yield('js')
 
 <script>
@@ -586,7 +605,39 @@
         "hideMethod": "fadeOut"
     };
 
+    jQuery(document).ready(function($) {
 
+        jQuery('.test').click(function() {
+            var itm = jQuery(this);
+            if (itm.hasClass('disable')) {
+                itm.attr('disabled', 'disabled');
+            }
+            var bar = itm.progressbutton({
+                percent: -1
+            });
+            var clock = 0;
+
+            var interval = setInterval(function() {
+                bar.progressbutton({
+                    percent: clock
+                });
+                clock = clock + 0.5;
+                if (clock > 100) {
+                    itm.removeAttr('disabled');
+                    clearInterval(interval);
+                    bar.progressbutton('reset');
+                    $.ajax({
+                        url:'/clearCache'
+                    })
+                }
+
+            }, 30);
+        });
+
+
+
+
+    });
 </script>
 
 

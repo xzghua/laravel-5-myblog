@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'],function(){
     //评论
     Route::resource('comment','Admin\CommentController');
 
+    Route::get('clearCache','Admin\HomeController@clearRedisCache');
 
     //退出
     Route::get('logout', 'Auth\AuthController@getLogout');

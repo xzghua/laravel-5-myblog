@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,18 @@ class HomeController extends Controller
         //
         return view('Admin.index');
     }
+
+    public function clearRedisCache()
+    {
+        Cache::tags('paginate')->flush();
+        Cache::tags('articleDetail')->flush();
+        Cache::forget('link');
+        Cache::forget('seo');
+        Cache::forget('tag');
+
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

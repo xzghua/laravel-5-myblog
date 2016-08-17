@@ -7,9 +7,9 @@
 
 ######博客功能
 * 目前只有文章的一些操作，分类的一些操作，标签的一些操作，还有系统设置与友链设置
+* redis缓存
 
 ######预加
-* redis缓存
 * 想试试laravel的任务调度
 * 看是否能将及时评论同步到微信(还没碰过微信),若不行，试试封装个简单APP(朋友推荐，本人还没接触过，想尝试)
 
@@ -19,6 +19,8 @@
 > composer install
 
 > 自行添加.env 文件
+
+> .env 里 `CACHE_DRIVER` 换成 `redis`
 
 > `php artisan key:generate`
 
