@@ -88,8 +88,8 @@
     <!-- Lists in Slidebars -->
     <ul class="sb-menu">
         <li><a href="/index" class="animsition-link" title="Home">Home</a></li>
-        {{--<li><a href="/archives" class="animsition-link" title="archive">archives</a></li>--}}
-        <!-- Dropdown Menu -->
+    {{--<li><a href="/archives" class="animsition-link" title="archive">archives</a></li>--}}
+    <!-- Dropdown Menu -->
         {{--标签--}}
         <li>
             <a class="sb-toggle-submenu">tags<span class="sb-caret"></span></a>
@@ -145,7 +145,7 @@
 
 <div id="sb-site">
     <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
-</div>
+
 <!-- ============================ Header & Logo bar =========================== -->
 
 <div id="navigation" class="navbar navbar-fixed-top">
@@ -202,7 +202,7 @@
     </div>
 </section>
 <!-- ============================ END Content =========================== -->
-
+</div>
 
 <!-- ============================ Footer =========================== -->
 
@@ -261,6 +261,7 @@
 <script src="/Home/default/js/scripts.js"></script><!-- Theme scripts -->
 {{--<script src="/Home/default/js/Parser.js"></script><!-- 解析markdown -->--}}
 
+<link rel="stylesheet" href="/Home/default/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/Home/default/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
     $('#intro').find('img').each(function(){
