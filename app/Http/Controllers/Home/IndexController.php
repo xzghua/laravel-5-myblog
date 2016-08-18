@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Admin\behaviorController;
+use App\Http\Controllers\Admin\Parsedown;
 use App\Http\Controllers\Admin\Parser;
 use App\Models\Article;
 use App\Models\Behavior;
@@ -84,8 +85,8 @@ class IndexController extends Controller
             Cache::tags(['articleDetail',$id])->put($id,$data['article'],100000);
         }
 
-        $parser = new Parser();
-        $data['article']['content'] = $parser->makeHtml($data['article']['content']);
+        $parser = new Parsedown();
+        $data['article']['content'] = $parser->text($data['article']['content']);
         $data['last'] = Article::where('id','<',$id)
             ->orderBy('created_at','desc')
             ->skip(0)
