@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\Admin\behaviorController;
 use App\Http\Controllers\Admin\Parser;
 use App\Models\Article;
+use App\Models\Behavior;
 use App\Models\Category;
 use App\Models\Link;
 use App\Models\Seo;
@@ -12,7 +14,6 @@ use App\Models\View;
 use Illuminate\Http\Request;
 use Cache;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Redis;
 
 class IndexController extends Controller
 {
@@ -23,6 +24,10 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         //
+//        $be = new behaviorController();
+//        dd($be->GetLang(),$be->GetBrowser(),$be->GetOS(),$be->GetIP(),$be->GetIsp(),$be->GetAdd());
+//        dd($_SERVER,$request->url());
+
         $page = empty($request->get('page')) ? 1 : $request->get('page');
         if (Cache::tags(['paginate',$page])->get($page)) {
             $data['paginate'] = Cache::tags(['paginate',$page])->get($page);
@@ -168,7 +173,15 @@ class IndexController extends Controller
     }
 
 
-
+    public function getBehavior()
+    {
+        $data = [];
+        $be = new behaviorController();
+        $data['browser'] = $be->GetBrowser();
+        $data['system']  = $be->GetOS();
+        $data['ip']      = $be->GetIP();
+//        $data['x']       = $be->
+    }
 
 
     /**
