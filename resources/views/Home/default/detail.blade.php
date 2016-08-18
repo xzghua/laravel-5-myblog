@@ -1,7 +1,7 @@
 @extends('Home.default.master')
 
 @section('css')
-
+    <link rel="stylesheet" href="/Home/default/js/highlight/styles/default.css">
 @endsection
 
 @section('content')
@@ -71,7 +71,7 @@
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
-            var duoshuoQuery = {short_name:"iphptblog"};
+            var duoshuoQuery = {short_name:"iphpt"};
             (function() {
                 var ds = document.createElement('script');
                 ds.type = 'text/javascript';ds.async = true;
@@ -87,5 +87,12 @@
 @endsection
 
 @section('js')
-
+    <script src="/Home/default/js/highlight/highlight.pack.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
 @endsection
