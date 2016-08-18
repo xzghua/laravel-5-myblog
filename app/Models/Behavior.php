@@ -28,6 +28,11 @@ class Behavior extends Model
         'y',
         'address',
         'system',
+        'province',
+        'city',
+        'district',
+        'street',
+        'street_number',
 
     ];
 }

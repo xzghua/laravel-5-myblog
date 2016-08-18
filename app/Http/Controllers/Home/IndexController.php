@@ -14,6 +14,7 @@ use App\Models\View;
 use Illuminate\Http\Request;
 use Cache;
 use App\Http\Controllers\Controller;
+use Mockery\CountValidator\Exception;
 
 class IndexController extends Controller
 {
@@ -24,9 +25,12 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         //
-//        $be = new behaviorController();
-//        dd($be->GetLang(),$be->GetBrowser(),$be->GetOS(),$be->GetIP(),$be->GetIsp(),$be->GetAdd());
-//        dd($_SERVER,$request->url());
+        $behavior = $this->getBehavior();
+        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $this->createBehavior($behavior);
 
         $page = empty($request->get('page')) ? 1 : $request->get('page');
         if (Cache::tags(['paginate',$page])->get($page)) {
@@ -49,12 +53,20 @@ class IndexController extends Controller
     }
 
     /**
-     * 文章详细页
      * @param $id
+     * @param Request $request
      * @return View
      */
-    public function getDetail($id)
+    public function getDetail($id,Request $request)
     {
+        $behavior = $this->getBehavior();
+        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $this->createBehavior($behavior);
+
+
         $data = $this->common();
         View::where('art_id',$id)->increment('view_num',1);
 
@@ -119,8 +131,15 @@ class IndexController extends Controller
      * @date 2016年08月13日15:37:53
      * @param string $cate_name
      */
-    public function getCategories($cate_name)
+    public function getCategories($cate_name,Request $request)
     {
+        $behavior = $this->getBehavior();
+        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $this->createBehavior($behavior);
+
         $data = $this->common();
         $data['artList'] = Category::where('cate_name',$cate_name)
             ->with('getArticle')
@@ -134,8 +153,15 @@ class IndexController extends Controller
      * @date 2016年08月13日16:52:54
      * @param string $tag_name
      */
-    public function getTags($tag_name)
+    public function getTags($tag_name,Request $request)
     {
+        $behavior = $this->getBehavior();
+        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $this->createBehavior($behavior);
+
         $data = $this->common();
         $data['artList'] = Tag::where('tag_name',$tag_name)
             ->with('getTags')
@@ -149,8 +175,15 @@ class IndexController extends Controller
      * 关于页面
      * @date 2016年08月13日16:53:34
      */
-    public function getAbout()
+    public function getAbout(Request $request)
     {
+        $behavior = $this->getBehavior();
+        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $this->createBehavior($behavior);
+
         $data = $this->common();
         return view('Home.'.$data['theme'].".about",$data);
     }
@@ -159,8 +192,15 @@ class IndexController extends Controller
      * 归档文章
      * @return View
      */
-    public function getMonthArticle()
+    public function getMonthArticle(Request $request)
     {
+        $behavior = $this->getBehavior();
+        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $this->createBehavior($behavior);
+
         $data = $this->common();
         $article = Article::all()->toArray();
 
@@ -175,15 +215,27 @@ class IndexController extends Controller
 
     public function getBehavior()
     {
-        $data = [];
+
         $be = new behaviorController();
+        $data = $be->GetAddress();
         $data['browser'] = $be->GetBrowser();
         $data['system']  = $be->GetOS();
         $data['ip']      = $be->GetIP();
-        $data['x']       = $be->GetAddIsp();
-        dd($data);
+        $data['x']       = $be->GetXY()['x'];
+        $data['y']       = $be->GetXY()['y'];
+
+        return $data;
     }
 
+    public function createBehavior($data)
+    {
+        try {
+            Behavior::create($data);
+
+        } catch (Exception $e) {
+            redirect()->route('Home.default.about');
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
