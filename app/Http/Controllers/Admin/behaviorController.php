@@ -105,6 +105,55 @@ class behaviorController extends Controller
         return $AddIsp;
     }
 
+    public function baiDuMap()
+    {
+        $IP = $this->GetIP();
+        //API控制台申请得到的ak（此处ak值仅供验证参考使用）
+        $ak = 'ead1hzlvCbQFwCtsQmWGWqz4gPkFI401';
+        $AddIsp = mb_convert_encoding(file_get_contents('http://api.map.baidu.com/location/ip?ak='.$ak.'&ip='.$IP),'UTF-8','GBK');
+        $AddIsp = json_decode($AddIsp,true);
+        if ($AddIsp['status'] != 0) {
+            $AddIsp = [
+                  "address" => "",
+                  "content" => [
+                    "address_detail" => [
+                      "province" => "",
+                      "city" => "",
+                      "district" => "",
+                      "street" => "",
+                      "street_number" => "",
+                      "city_code" => ""
+                    ],
+                    "address" => "",
+                    "point" => [
+                      "y" => "",
+                      "x" => "",
+                    ]
+                  ],
+                  "status" => 0
+                ];
+        }
+
+        return $AddIsp;
+    }
+
+    public function GetXY()
+    {
+        return $this->baiDuMap()['content']['point'];
+    }
+
+    public function GetAddress()
+    {
+        $map = $this->baiDuMap();
+
+        $data['province'] = $map['content']['address_detail']['province'];
+        $data['city'] = $map['content']['address_detail']['city'];
+        $data['district'] = $map['content']['address_detail']['district'];
+        $data['street'] = $map['content']['address_detail']['street'];
+        $data['street_number'] = $map['content']['address_detail']['street_number'];
+        $data['address'] = $map['address'];
+        return $data;
+    }
 
     public function GetAdd() {
         $Add = $this->GetAddIsp();
