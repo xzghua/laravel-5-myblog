@@ -180,7 +180,8 @@ class IndexController extends Controller
         $data['browser'] = $be->GetBrowser();
         $data['system']  = $be->GetOS();
         $data['ip']      = $be->GetIP();
-//        $data['x']       = $be->
+        $data['x']       = $be->GetAddIsp();
+        dd($data);
     }
 
 
