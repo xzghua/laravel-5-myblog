@@ -84,7 +84,14 @@
                 width: "50%",
                 height: 640,
                 syncScrolling: "single",
-                path: "/Admin/editor/lib/"
+                path: "/Admin/editor/lib/",
+
+                theme : " dark",
+                // Preview container theme, added v1.5.0
+                // You can also custom css class .editormd-preview-theme-xxxx
+                previewTheme : " dark",
+                // Added @v1.5.0 & after version this is CodeMirror (editor area) theme
+                editorTheme : editormd.editorThemes['test-editormd']
             });
         });
 

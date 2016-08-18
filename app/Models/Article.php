@@ -7,6 +7,7 @@
  */
 namespace App\Models;
 
+use App\Http\Controllers\Admin\Parsedown;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -156,8 +157,8 @@ class Article extends Model
             }
 
             if ($page != 'Admin') {
-                $parser = new \App\Http\Controllers\Admin\Parser();
-                $allData[$key]['content'] = cut_html_str($parser->makeHtml($item['content']),50);
+                $parser = new Parsedown();
+                $allData[$key]['content'] = cut_html_str($parser->text($item['content']),50);
             }
 
         }
