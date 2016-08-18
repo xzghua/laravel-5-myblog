@@ -93,7 +93,7 @@ class behaviorController extends Controller
 
         $AddIsp = mb_convert_encoding(file_get_contents('http://api.map.baidu.com/location/ip?ak='.$ak.'&ip='.$IP),'UTF-8','GBK');
         //mb_convert_encoding() 转换字符编码。
-        dd( json_decode($AddIsp,true));
+        dd($AddIsp);
         if(preg_match('/noresult/i',$AddIsp)) {
             $AddIsp = 'None';
         } else {
