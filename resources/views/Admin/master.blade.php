@@ -621,7 +621,7 @@
                 bar.progressbutton({
                     percent: clock
                 });
-                clock = clock + 0.5;
+                clock = clock + 1.5;
                 if (clock > 100) {
                     itm.removeAttr('disabled');
                     clearInterval(interval);
