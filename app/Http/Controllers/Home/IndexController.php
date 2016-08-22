@@ -61,7 +61,7 @@ class IndexController extends Controller
     public function getDetail($id,Request $request)
     {
         $behavior = $this->getBehavior();
-        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
