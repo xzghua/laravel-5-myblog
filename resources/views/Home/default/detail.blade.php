@@ -46,7 +46,7 @@
 
         </div>
     </section>
-    <div class="duoshuo">
+    <div class="duoshuo" style="text-align: center">
 
             <div class="ds-share flat" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-images="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}" data-content="{{$article['content']}}" data-url="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}">
 
