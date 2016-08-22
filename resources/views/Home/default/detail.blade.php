@@ -71,7 +71,16 @@
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
-            var duoshuoQuery = {short_name:"iphptBlog"};
+            var duoshuoQuery = {short_name:
+                <?php
+                        if ($_SERVER['SERVER_NAME'] == 'www.iphpt.com') {
+                            echo "'iphptBlog'";
+                        } else {
+                            echo '"iphpt"';
+                        }
+
+                        ?>
+            };
             (function() {
                 var ds = document.createElement('script');
                 ds.type = 'text/javascript';ds.async = true;
@@ -94,5 +103,6 @@
                 hljs.highlightBlock(block);
             });
         });
+
     </script>
 @endsection
