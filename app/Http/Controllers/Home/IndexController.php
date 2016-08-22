@@ -27,7 +27,7 @@ class IndexController extends Controller
     {
         //
         $behavior = $this->getBehavior();
-        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
@@ -61,7 +61,9 @@ class IndexController extends Controller
     public function getDetail($id,Request $request)
     {
         $behavior = $this->getBehavior();
+
         $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
+
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
@@ -135,7 +137,7 @@ class IndexController extends Controller
     public function getCategories($cate_name,Request $request)
     {
         $behavior = $this->getBehavior();
-        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
@@ -157,7 +159,7 @@ class IndexController extends Controller
     public function getTags($tag_name,Request $request)
     {
         $behavior = $this->getBehavior();
-        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
@@ -179,7 +181,7 @@ class IndexController extends Controller
     public function getAbout(Request $request)
     {
         $behavior = $this->getBehavior();
-        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
@@ -196,7 +198,7 @@ class IndexController extends Controller
     public function getMonthArticle(Request $request)
     {
         $behavior = $this->getBehavior();
-        $behavior['cookie'] = $_SERVER['HTTP_COOKIE'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
         $behavior['url'] = $request->url();
         $behavior['port'] = $_SERVER['REMOTE_PORT'];
         $behavior['mobile'] = '';
