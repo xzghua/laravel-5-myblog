@@ -18,7 +18,7 @@
 
 
 <div class="middle-box text-center animated fadeInDown">
-    <h1 style="font-size: 300px;margin: -15%">503</h1>
+    <h1 style="font-size: 300px;margin: -15%">500</h1>
     <h3 class="font-bold">他妈的,出问题了！管理员呢？QQ2067930913</h3>
 
     <div class="error-desc" style="text-align: center">

@@ -16,6 +16,7 @@ class Behavior extends Model
 
     protected $primaryKey = 'id';
 
+    public $timestamps = false;
 
     protected $fillable = [
         'ip',
@@ -33,6 +34,7 @@ class Behavior extends Model
         'district',
         'street',
         'street_number',
-
+        'created_at',
+        'updated_at'
     ];
 }
