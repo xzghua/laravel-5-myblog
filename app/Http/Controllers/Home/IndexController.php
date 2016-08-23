@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Admin\behaviorController;
 use App\Http\Controllers\Admin\Parsedown;
 use App\Http\Controllers\Admin\Parser;
+use App\Jobs\InsertBehaviorData;
 use App\Models\Article;
 use App\Models\Behavior;
 use App\Models\Category;
@@ -15,7 +16,9 @@ use App\Models\View;
 use Illuminate\Http\Request;
 use Cache;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redis;
 use Mockery\CountValidator\Exception;
+use Mail;
 
 class IndexController extends Controller
 {
@@ -26,13 +29,7 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         //
-        $behavior = $this->getBehavior();
-        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
-        $behavior['url'] = $request->url();
-        $behavior['port'] = $_SERVER['REMOTE_PORT'];
-        $behavior['mobile'] = '';
-        $this->createBehavior($behavior);
-
+        $this->getBehavior($request);
         $page = empty($request->get('page')) ? 1 : $request->get('page');
         if (Cache::tags(['paginate',$page])->get($page)) {
             $data['paginate'] = Cache::tags(['paginate',$page])->get($page);
@@ -60,16 +57,7 @@ class IndexController extends Controller
      */
     public function getDetail($id,Request $request)
     {
-        $behavior = $this->getBehavior();
-
-        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
-
-        $behavior['url'] = $request->url();
-        $behavior['port'] = $_SERVER['REMOTE_PORT'];
-        $behavior['mobile'] = '';
-        $this->createBehavior($behavior);
-
-
+        $this->getBehavior($request);
         $data = $this->common();
         View::where('art_id',$id)->increment('view_num',1);
 
@@ -136,12 +124,7 @@ class IndexController extends Controller
      */
     public function getCategories($cate_name,Request $request)
     {
-        $behavior = $this->getBehavior();
-        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
-        $behavior['url'] = $request->url();
-        $behavior['port'] = $_SERVER['REMOTE_PORT'];
-        $behavior['mobile'] = '';
-        $this->createBehavior($behavior);
+        $this->getBehavior($request);
 
         $data = $this->common();
         $data['artList'] = Category::where('cate_name',$cate_name)
@@ -158,12 +141,7 @@ class IndexController extends Controller
      */
     public function getTags($tag_name,Request $request)
     {
-        $behavior = $this->getBehavior();
-        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
-        $behavior['url'] = $request->url();
-        $behavior['port'] = $_SERVER['REMOTE_PORT'];
-        $behavior['mobile'] = '';
-        $this->createBehavior($behavior);
+        $this->getBehavior($request);
 
         $data = $this->common();
         $data['artList'] = Tag::where('tag_name',$tag_name)
@@ -180,13 +158,7 @@ class IndexController extends Controller
      */
     public function getAbout(Request $request)
     {
-        $behavior = $this->getBehavior();
-        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
-        $behavior['url'] = $request->url();
-        $behavior['port'] = $_SERVER['REMOTE_PORT'];
-        $behavior['mobile'] = '';
-        $this->createBehavior($behavior);
-
+        $this->getBehavior($request);
         $data = $this->common();
         return view('Home.'.$data['theme'].".about",$data);
     }
@@ -197,13 +169,7 @@ class IndexController extends Controller
      */
     public function getMonthArticle(Request $request)
     {
-        $behavior = $this->getBehavior();
-        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
-        $behavior['url'] = $request->url();
-        $behavior['port'] = $_SERVER['REMOTE_PORT'];
-        $behavior['mobile'] = '';
-        $this->createBehavior($behavior);
-
+        $this->getBehavior($request);
         $data = $this->common();
         $article = Article::all()->toArray();
 
@@ -215,19 +181,36 @@ class IndexController extends Controller
         return  view('Home.'.$data['theme'].".monthList",$data);
     }
 
-
-    public function getBehavior()
+    /**
+     * 记录访问各个页面的访问者的一些信息,并且放入队列,第二天凌晨12点入库
+     * @param $request
+     */
+    public function getBehavior($request)
     {
+        date_default_timezone_set('PRC');
 
         $be = new behaviorController();
-        $data = $be->GetAddress();
-        $data['browser'] = $be->GetBrowser();
-        $data['system']  = $be->GetOS();
-        $data['ip']      = $be->GetIP();
-        $data['x']       = $be->GetXY()['x'];
-        $data['y']       = $be->GetXY()['y'];
+        $behavior = $be->GetAddress();
+        $behavior['browser'] = $be->GetBrowser();
+        $behavior['system']  = $be->GetOS();
+        $behavior['ip']      = $be->GetIP();
+        $behavior['x']       = $be->GetXY()['x'];
+        $behavior['y']       = $be->GetXY()['y'];
+        $behavior['cookie'] = isset($_SERVER['HTTP_COOKIE']) ? $_SERVER['HTTP_COOKIE'] : '';
+        $behavior['url'] = $request->url();
+        $behavior['port'] = $_SERVER['REMOTE_PORT'];
+        $behavior['mobile'] = '';
+        $behavior['created_at'] = date('Y-m-d H:i:s',time());
+        $behavior['updated_at'] = date('Y-m-d H:i:s',time());
 
-        return $data;
+        $tomorrow = strtotime(date('Y-m-d',strtotime("+1 day")) );
+        $now = time();
+        $time = $tomorrow - $now + rand(1,60);
+
+//        dd(date('Y-m-d H:i:s',$tomorrow),date('Y-m-d H:i:s',$now),$time);
+
+        $this->dispatch((new InsertBehaviorData($behavior))->delay($time));
+
     }
 
     public function createBehavior($data)
@@ -240,69 +223,11 @@ class IndexController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function someOneIsBadGay($ip)
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
