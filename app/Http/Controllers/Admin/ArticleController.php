@@ -62,11 +62,11 @@ class ArticleController extends Controller
 
         try {
             $article =  Article::create($data);
-
             if ($article) {
                 $article->attachTag($mergeTags);
                 $article->attachCate([$category]);
                 $article->getViews()->create(['art_id' => $article->id]);
+                $this->curlUrlToBaiDu($article->id);
                 reminder()->success(config("code.".Article::ARTICLE_CREATE_SUCCESS),'创建成功');
                 return redirect()->route('article.index');
             }
@@ -138,6 +138,7 @@ class ArticleController extends Controller
             if ($updateArt) {
                 $updateArt->getTags()->sync($mergeTags);
                 $updateArt->getCategories()->sync([$category]);
+                $this->curlUrlToBaiDu($id);
                 if ($updateArt->update($data)) {
                     reminder()->success(config("code.".Article::ARTICLE_UPDATE_SUCCESS),'修改成功');
                     return redirect()->route('article.index');
@@ -178,6 +179,26 @@ class ArticleController extends Controller
             return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
         }
     }
+
+    public function curlUrlToBaiDu($id)
+    {
+        $urls = array(
+            'http://www.iphpt.com/detail/'.$id.'/',
+        );
+        $api = 'http://data.zz.baidu.com/urls?site=www.iphpt.com&token=VAIRqrpBUvP60Hbq';
+        $ch = curl_init();
+        $options =  array(
+            CURLOPT_URL => $api,
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS => implode("\n", $urls),
+            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
+        );
+        curl_setopt_array($ch, $options);
+        $result = curl_exec($ch);
+        curl_close($ch);
+    }
+
 
 
     public function uploadPhotosByEditor()
