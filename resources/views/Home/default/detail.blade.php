@@ -1,7 +1,7 @@
 @extends('Home.default.master')
 
 @section('css')
-    <link rel="stylesheet" href="/Home/default/js/highlight/styles/default.css">
+    <link rel="stylesheet" href="/Home/default/js/highlight/styles/atom-one-dark.css">
 @endsection
 
 @section('content')
@@ -97,12 +97,6 @@
 
 @section('js')
     <script src="/Home/default/js/highlight/highlight.pack.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-            });
-        });
+    <script>hljs.initHighlightingOnLoad();</script>
 
-    </script>
 @endsection
