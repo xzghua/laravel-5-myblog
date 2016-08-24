@@ -33,8 +33,8 @@ class InsertBehaviorData extends Job implements SelfHandling, ShouldQueue
     public function handle()
     {
         //
-        $a =  Behavior::create($this->behavior);
-        echo $a;
+        Behavior::create($this->behavior);
+
     }
 
 
