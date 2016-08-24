@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\behaviorController;
 use App\Http\Controllers\Admin\Parsedown;
 use App\Http\Controllers\Admin\Parser;
 use App\Jobs\InsertBehaviorData;
+use App\Jobs\TestJob;
 use App\Models\Article;
 use App\Models\Behavior;
 use App\Models\Category;
@@ -228,6 +229,9 @@ class IndexController extends Controller
 
     }
 
-
+    public function TestJob()
+    {
+        $this->dispatch((new TestJob())->delay(40));
+    }
 
 }
