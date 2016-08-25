@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Log;
 
 class ArticleController extends Controller
 {
@@ -196,6 +197,7 @@ class ArticleController extends Controller
         );
         curl_setopt_array($ch, $options);
         $result = curl_exec($ch);
+        Log::info('curl the url ('.$urls[0].') to baidu,the result is '.$result);
         curl_close($ch);
     }
 
