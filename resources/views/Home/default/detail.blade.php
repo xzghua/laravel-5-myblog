@@ -28,6 +28,8 @@
 
                 <div class="clearfix"></div>
                 <hr class="nogutter">
+                <span style="color: #19A1F9">欢迎转载,但请附上原文地址哦,尊重原创,谢谢大家 本文地址: <a style="color: #19A1F9" href="/detail/{{$article['id']}}/">http://www.iphpt.com/detail/{{$article['id']}}/</a></span>
+                <hr class="nogutter">
             </div>
             <nav class="pagination" role="pagination">
                 @if (!empty($last))

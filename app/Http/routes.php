@@ -61,4 +61,4 @@ Route::group(['middleware' => 'auth'],function(){
 
     //评论
     Route::get('getComment','Admin\CommentController@getCallBackComment');
-    Route::post('postComment','Admin\CommentController@postComment');
+    Route::post('postComment','Admin\CommentController@sync_log');
