@@ -158,7 +158,7 @@ class Article extends Model
 
             if ($page != 'Admin') {
                 $parser = new Parsedown();
-                $allData[$key]['content'] = cut_html_str($parser->text($item['content']),120);
+                $allData[$key]['content'] = cut_html_str($parser->text($item['content']),100);
             }
 
         }
