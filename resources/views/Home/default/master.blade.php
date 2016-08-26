@@ -174,8 +174,9 @@
 
                     <li><a href="http://weibo.com/ylsc633/home?wvr=5" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
 
-                    <li class="nolink"><span>Welcome!</span></li>
                     <li class="nolink"><span><a href="http://www.iphpt.com/detail/1/">给我留言</a></span></li>
+                    <li class="nolink"><span>Welcome!</span></li>
+
                 </ul>
             </nav>
             <!--// Info-bar -->
