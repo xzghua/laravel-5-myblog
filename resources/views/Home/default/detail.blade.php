@@ -1,5 +1,5 @@
 @extends('Home.default.master')
-
+@section('title',$article['title'])
 @section('css')
     <link rel="stylesheet" href="/Home/default/js/highlight/styles/atom-one-dark.css">
 @endsection
