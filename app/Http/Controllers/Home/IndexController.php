@@ -204,13 +204,13 @@ class IndexController extends Controller
         $behavior['created_at'] = date('Y-m-d H:i:s',time());
         $behavior['updated_at'] = date('Y-m-d H:i:s',time());
 
-        $tomorrow = strtotime(date('Y-m-d',strtotime("+1 day")) );
-        $now = time();
-        $time = $tomorrow - $now + rand(1,60);
+//        $tomorrow = strtotime(date('Y-m-d',strtotime("+1 day")) );
+//        $now = time();
+//        $time = $tomorrow - $now + rand(1,60);
 
 //        dd(date('Y-m-d H:i:s',$tomorrow),date('Y-m-d H:i:s',$now),$time);
 
-        $this->dispatch((new InsertBehaviorData($behavior))->delay($time));
+        $this->dispatch((new InsertBehaviorData($behavior))->delay(15*60));
 
     }
 
