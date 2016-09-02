@@ -172,7 +172,7 @@ class IndexController extends Controller
     {
         $this->getBehavior($request);
         $data = $this->common();
-        $article = Article::all()->toArray();
+        $article = Article::orderBy('created_at','desc')->get()->toArray();
 
         $data['article'] = [];
         foreach ( $article as $key => $value) {

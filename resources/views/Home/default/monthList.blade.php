@@ -13,13 +13,13 @@
             </div>
             <div class="col-md-8 col-md-offset-2" style="text-align: center;min-height: 600px">
                 <h1>归档</h1>
-                <hr class="nogutter" style="margin: 1px">
+                <hr class="nogutter" >
 
                 @foreach($article as $k => $item)
 
-                    <h2> {{$k}} </h2>
+                    <h2 style="color: navy"> {{$k}} </h2>
                     <hr class="nogutter" style="margin-top: 5px;margin-bottom: 5px">
-                    {{krsort($item)}}
+                    <?php krsort($item);  ?>
                     @foreach($item as $value)
                        <span > <a href="/detail/{{$value['id']}}" >{{$value['title']}}</a></span>
                         <hr  style="margin-top: 5px;margin-bottom: 5px">
