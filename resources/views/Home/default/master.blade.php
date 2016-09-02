@@ -16,7 +16,7 @@
     <meta name="generator" content="{{empty($seo) ? '叶落山城秋' :  $seo['title']}}">
     <meta name="description" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['description']}}" />
     <meta name="keywords" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['seo_key']}}" />
-
+    <meta name="360-site-verification" content="e271c5c0c053a35a8b816da64df1084d" />
     <!-- Favicon, (keep icon in root folder) -->
     <link rel="Shortcut Icon" href="/Home/default/img/nice.png" type="image/ico">
 
