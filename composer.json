@@ -8,7 +8,9 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "guzzlehttp/guzzle": "^6.2",
-        "rmccue/requests": "> 1.0"
+        "rmccue/requests": "> 1.0",
+        "rap2hpoutre/laravel-log-viewer": "^0.7.0",
+        "laravel/envoy": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

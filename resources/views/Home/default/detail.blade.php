@@ -2,6 +2,7 @@
 @section('title',$article['title'])
 @section('css')
     <link rel="stylesheet" href="/Home/default/js/highlight/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="/Home/default/css/share.min.css">
 @endsection
 
 @section('content')
@@ -48,28 +49,15 @@
 
         </div>
     </section>
-    <div class="duoshuo" style="text-align: center">
 
-            <div class="ds-share flat" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-images="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}" data-content="{{$article['content']}}" data-url="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}">
+    <div class="duoshuo " style="text-align: center">
 
-            <div class="ds-share-inline">
-                <ul  class="ds-share-icons-16">
+        <div class="share-component" data-disabled="twitter,facebook" data-mobile-sites="weibo,qq,qzone,tencent"></div>
 
-                    <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-                    <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-                    <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-                    <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-                    <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-                </ul>
-                <div class="ds-share-icons-more">
-                </div>
-            </div>
-        </div>
 
         <!-- 多说评论框 start -->
         <div class="ds-thread" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-url="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}"></div>
-
+    </div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">
@@ -99,6 +87,7 @@
 
 @section('js')
     <script src="/Home/default/js/highlight/highlight.pack.js"></script>
+    <script src="/Home/default/js/jquery.share.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
 @endsection
