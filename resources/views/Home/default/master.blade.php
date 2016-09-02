@@ -163,7 +163,7 @@
 
 
 
-                    <li><a href="http://weibo.com/ylsc633/home?wvr=5" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                    <li><a href="http://weibo.com/ylsc633?refer_flag=1001030101_&is_hot=1" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
 
                     <li class="nolink"><span><a href="http://www.iphpt.com/detail/1/">给我留言</a></span></li>
                     <li class="nolink"><span>Welcome!</span></li>
@@ -218,7 +218,7 @@
 
 
 
-                <li><a href="http://weibo.com/ylsc633/home?wvr=5" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                <li><a href="http://weibo.com/ylsc633?refer_flag=1001030101_&is_hot=1" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
 
             </ul>
             <script src="http://s95.cnzz.com/z_stat.php?id=1256842383&web_id=1256842383" language="JavaScript"></script>
