@@ -19,7 +19,7 @@
 
                     <h2 style="color: navy"> {{$k}} </h2>
                     <hr class="nogutter" style="margin-top: 5px;margin-bottom: 5px">
-                    <?php krsort($item);  ?>
+
                     @foreach($item as $value)
                        <span > <a href="/detail/{{$value['id']}}" >{{$value['title']}}</a></span>
                         <hr  style="margin-top: 5px;margin-bottom: 5px">
