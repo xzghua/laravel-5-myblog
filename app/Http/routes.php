@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'],function(){
 
     Route::post('uploadPhotos','Admin\ArticleController@uploadPhotosByEditor');
 
+    //日志系统
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 });
     //登陆认证

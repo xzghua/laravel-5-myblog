@@ -147,6 +147,8 @@ return [
 
         //toast 提示包,网上down的,https://github.com/RryLee/laravel-reminder
         Rry\Reminder\ReminderServiceProvider::class,
+        //日志系统
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
     ],
 
     /*
