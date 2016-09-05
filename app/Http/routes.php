@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'],function(){
     Route::resource('seo','Admin\SeoController');
     Route::resource('navigation','Admin\NavigationController');
 
+    Route::get('deleted','Admin\ArticleController@listDeleteArticle');
+    Route::get('restore/{id}','Admin\ArticleController@restoreArticle');
+
     //自动填充标签
     Route::get('autoCompleteTags','Admin\TagController@autoFillTags');
 

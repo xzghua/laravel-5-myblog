@@ -201,7 +201,47 @@ class ArticleController extends Controller
         curl_close($ch);
     }
 
+    /**
+     * 列出被删除的文章
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function listDeleteArticle()
+    {
+        $data['paginate'] = Article::onlyTrashed()
+            ->orderBy('created_at','desc')
+            ->with('getAuthor')
+            ->with('getTags')
+            ->with('getCategories')
+            ->with('getViews')
+            ->paginate(12);
+        $data['article'] = Article::sortData($data['paginate']->toArray()['data']);
 
+        return view('Admin.Article.deleted',$data);
+    }
+
+    /**
+     * 恢复文章
+     * @date 2016年09月05日18:15:38
+     * @param $id
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function restoreArticle($id)
+    {
+//        dd(Article::withTrashed()->where('id', $id)->restore());
+        try {
+            if ( Article::withTrashed()->where('id', $id)->restore()) {
+                reminder()->success(config("code.".Article::ARTICLE_RESTORE_SUCCESS),'操作成功');
+                return redirect()->route('article.index');
+            } else {
+                reminder()->error(config("code.".Article::ARTICLE_RESTORE_ERROR),'操作失败');
+                return back();
+            }
+
+        } catch (\Exception $e) {
+            reminder()->error(config("code.".Article::ARTICLE_RESTORE_ERROR),'操作失败');
+            return redirect()->back()->withErrors(array('error' => $e->getMessage()))->withInput();
+        }
+    }
 
     public function uploadPhotosByEditor()
     {
