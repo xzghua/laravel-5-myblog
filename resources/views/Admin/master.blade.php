@@ -209,8 +209,12 @@
                                 <a class="tooltip-tip2 ajax-load" href="/article" title="Articles List"><i class="entypo-doc-text"></i><span>文章列表</span></a>
                             </li>
                             <li>
+                                <a class="tooltip-tip2 ajax-load" href="/deleted" title="Blog Detail"><i class="entypo-newspaper"></i><span>被删除文章列表</span></a>
+                            </li>
+                            <li>
                                 <a class="tooltip-tip2 ajax-load" href="/article/create" title="Blog Detail"><i class="entypo-newspaper"></i><span>写文章</span></a>
                             </li>
+
                         </ul>
                     </li>
                     <li>

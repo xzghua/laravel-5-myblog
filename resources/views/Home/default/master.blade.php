@@ -16,7 +16,7 @@
     <meta name="generator" content="{{empty($seo) ? '叶落山城秋' :  $seo['title']}}">
     <meta name="description" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['description']}}" />
     <meta name="keywords" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['seo_key']}}" />
-    <meta name="sogou_site_verification" content="24eDz72QWr"/>
+
     <!-- Favicon, (keep icon in root folder) -->
     <link rel="Shortcut Icon" href="/Home/default/img/nice.png" type="image/ico">
 
@@ -213,7 +213,7 @@
                 <li><a href="https://github.com/Yela528/laravel-5-myblog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
 
 
-                <li><a href="#" title="Twitter" target="_blank"><i class="icon-star"></i></a>&nbsp;</li>
+                <li><a href="#" title="阿里云推荐码" target="_blank"><i class="icon-star"></i></a>&nbsp;</li>
 
 
 

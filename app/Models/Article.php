@@ -22,6 +22,8 @@ class Article extends Model
     const ARTICLE_UPDATE_ERROR = '300000004';
     const ARTICLE_DELETE_SUCCESS = '300000005';
     const ARTICLE_DELETE_ERROR = '300000006';
+    const ARTICLE_RESTORE_SUCCESS = '300000008';
+    const ARTICLE_RESTORE_ERROR = '300000009';
 
     /**
      * 关联到模型的数据表
