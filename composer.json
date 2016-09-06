@@ -10,7 +10,8 @@
         "guzzlehttp/guzzle": "^6.2",
         "rmccue/requests": "> 1.0",
         "rap2hpoutre/laravel-log-viewer": "^0.7.0",
-        "laravel/envoy": "^1.2"
+        "laravel/envoy": "^1.2",
+        "suin/php-rss-writer": "^1.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
