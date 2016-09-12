@@ -1,4 +1,5 @@
 @extends('Home.default.master')
+@section('title',"归档"."&nbsp;&nbsp;-&nbsp;&nbsp;")
 
 @section('content')
 

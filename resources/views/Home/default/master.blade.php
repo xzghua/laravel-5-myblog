@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-    <title>@yield('title')  -  {{empty($seo) ? '叶落山城秋' : $seo['title']}}</title>
+    <title>@yield('title')    {{empty($seo) ? '叶落山城秋' : $seo['title']}}</title>
     <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
