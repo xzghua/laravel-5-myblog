@@ -1,4 +1,5 @@
 @extends('Home.default.master')
+@section('title',"关于"."&nbsp;&nbsp;-&nbsp;&nbsp;")
 
 @section('css')
 
