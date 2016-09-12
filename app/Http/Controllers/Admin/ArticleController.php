@@ -9,6 +9,8 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
+use Intervention\Image\ImageManager;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -243,8 +245,85 @@ class ArticleController extends Controller
         }
     }
 
+
+    /**
+     * 编辑器自带上传图片处理方法 (此方法并未验证图片安全性,需要请自行添加)
+     * @date 2016年09月12日18:20:32
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function uploadPhotosByEditor()
     {
+        $form_data = Input::all();
 
+        $photo = $form_data['editormd-image-file'];
+
+        $original_name = $photo->getClientOriginalName();
+        $original_name_without_ext = substr($original_name, 0, strlen($original_name) - 4);
+
+        $filename = $this->sanitize($original_name_without_ext);
+        $allowed_filename = $this->createUniqueFilename( $filename );
+
+        $filename_ext = $allowed_filename .'.jpg';
+
+        $manager = new ImageManager();
+        $image = $manager->make( $photo )->encode('jpg')->save(env('UPLOAD_PATH') . $filename_ext );
+
+        if( !$image) {
+            return response()->json([
+                'success' => 0,
+                'message' => '图片上传失败',
+            ]);
+
+        } else {
+            return response()->json([
+                'success' => 1,
+                'message' => '图片上传成功',
+                'url' => "/uploads/".$filename_ext
+            ]);
+        }
     }
+
+    /**
+     * 上传图片带的
+     * @param $string
+     * @param bool $force_lowercase
+     * @param bool $anal
+     * @return mixed|string
+     */
+    private function sanitize($string, $force_lowercase = true, $anal = false)
+    {
+        $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+            "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+            "â€”", "â€“", ",", "<", ".", ">", "/", "?");
+        $clean = trim(str_replace($strip, "", strip_tags($string)));
+        $clean = preg_replace('/\s+/', "-", $clean);
+        $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean ;
+
+        return ($force_lowercase) ?
+            (function_exists('mb_strtolower')) ?
+                mb_strtolower($clean, 'UTF-8') :
+                strtolower($clean) :
+            $clean;
+    }
+
+    /**
+     * 编辑器上传图片命名
+     * @param $filename
+     * @return string
+     */
+    private function createUniqueFilename( $filename )
+    {
+        $upload_path = env('UPLOAD_PATH');
+        $full_image_path = $upload_path . $filename . '.jpg';
+
+        if ( File::exists( $full_image_path ) )
+        {
+            // Generate token for image
+            $image_token = substr(sha1(mt_rand()), 0, 5);
+            return $filename . '-' . $image_token;
+        }
+
+        return $filename;
+    }
+
 }
