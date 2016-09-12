@@ -8,7 +8,7 @@
     <link href="/Admin/editor/css/editormd.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/Admin/assets/js/tag/jquery.tagsinput.css">
     <link rel="stylesheet" type="text/css" href="/Admin/assets/css/jquery-ui.min.css">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('menu','文章管理')
@@ -69,10 +69,10 @@
 
 
 @section('js')
-    <script type="text/javascript" src="/Admin/assets/js/validate/jquery.validate.min.js"></script>
     <script type="text/javascript" src="/Admin/editor/js/editormd.min.js"></script>
     <script type="text/javascript" src="/Admin/assets/js/tag/jquery.tagsinput.js"></script>
     <script type="text/javascript" src="/Admin/assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/Admin/assets/js/validate/jquery.validate.min.js"></script>
 
     <script type="text/javascript" src="/Admin/admin.create.js"></script>
     <script>
@@ -85,6 +85,20 @@
                 height: 640,
                 syncScrolling: "single",
                 path: "/Admin/editor/lib/",
+                imageUpload : true,
+                imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL : "/uploadPhotos",
+
+                // markdown : md,
+                codeFold : true,
+
+                saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
+                searchReplace : true,
+                //watch : false,                // 关闭实时预览
+                htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+
+                emoji : true,
+                taskList : true,
 
                 theme : " dark",
                 // Preview container theme, added v1.5.0
@@ -98,9 +112,7 @@
         $(function() {
 
             $('#tag').tagsInput({
-                imageUpload : true,
-                imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                imageUploadURL : "/uploadPhotos",
+
                 autocomplete_url:"/autoCompleteTags",
 
                 previewTheme : "dark",

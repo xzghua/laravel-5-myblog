@@ -149,6 +149,8 @@ return [
         Rry\Reminder\ReminderServiceProvider::class,
         //日志系统
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        //图片上传和处理的
+        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -198,6 +200,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Reminder'  => Rry\Reminder\ReminderFacade::class,
+
+        'Image' => Intervention\Image\Facades\Image::class
     ],
 
 ];

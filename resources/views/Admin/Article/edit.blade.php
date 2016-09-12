@@ -85,16 +85,34 @@
                 width: "50%",
                 height: 640,
                 syncScrolling: "single",
-                path: "/Admin/editor/lib/"
+                path: "/Admin/editor/lib/",
+                imageUpload : true,
+                imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL : "/uploadPhotos",
+                // markdown : md,
+                codeFold : true,
+
+                saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
+                searchReplace : true,
+                //watch : false,                // 关闭实时预览
+                htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+
+                emoji : true,
+                taskList : true,
+
+                theme : " dark",
+                // Preview container theme, added v1.5.0
+                // You can also custom css class .editormd-preview-theme-xxxx
+                previewTheme : " dark",
+                // Added @v1.5.0 & after version this is CodeMirror (editor area) theme
+                editorTheme : editormd.editorThemes['test-editormd']
             });
         });
 
         $(function() {
 
             $('#tag').tagsInput({
-                imageUpload : true,
-                imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                imageUploadURL : "/uploadPhotos",
+
                 autocomplete_url:"/autoCompleteTags",
 
                 previewTheme : "dark",
