@@ -11,7 +11,6 @@
         "rmccue/requests": "> 1.0",
         "rap2hpoutre/laravel-log-viewer": "^0.7.0",
         "laravel/envoy": "^1.2",
-        "suin/php-rss-writer": "^1.5",
         "intervention/image": "^2.3"
     },
     "require-dev": {

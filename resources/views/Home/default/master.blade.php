@@ -201,6 +201,14 @@
 
 <footer>
     <div class="container">
+        <div>
+            <p>欢迎加入交流群(群号):440221268</p>
+        </div>
+        <div>
+            <p>我的阿里云9折购买推荐码为:y2jcyp</p><i class="icon-facebook"></i>
+        </div>
+    </div>
+    <div class="container">
         <div class="copy">
             <p>
                 &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By 叶落山城. All Rights Reserved.
@@ -213,7 +221,7 @@
                 <li><a href="https://github.com/Yela528/laravel-5-myblog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
 
 
-                <li><a href="#" title="阿里云推荐码" target="_blank"><i class="icon-star"></i></a>&nbsp;</li>
+                <li><a href="#" title="阿里云推荐码" target="_blank"><i class="icon-qq"></i></a>&nbsp;</li>
 
 
 

@@ -55,4 +55,5 @@
 
 
 
-- 2016年08月11日 后台效果图 ![后台效果图](http://obq9881x1.bkt.clouddn.com/2016.png)
+- 2016年08月11日 后台效果图 ![分类页面](http://obq9881x1.bkt.clouddn.com/webwxgetmsgimg%20%282%29.jpg)
+- 后台文章的页面：![后台文章页面](http://obq9881x1.bkt.clouddn.com/webwxgetmsgimg%20%283%29.jpg)
