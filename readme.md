@@ -57,4 +57,3 @@
 
 - 2016年08月11日 后台效果图 ![分类页面](http://obq9881x1.bkt.clouddn.com/%E5%88%86%E7%B1%BB%E9%A1%B5%E9%9D%A2.png)
 - 后台文章的页面：![后台文章页面](http://obq9881x1.bkt.clouddn.com/%E5%90%8E%E5%8F%B0%E6%96%87%E7%AB%A0%E9%A1%B5%E9%9D%A2.png)
-- 后台首页(菜单折叠)：![后台首页](http://obq9881x1.bkt.clouddn.com/%E5%90%8E%E5%8F%B0%E9%A6%96%E9%A1%B5.png)
