@@ -224,7 +224,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a class="tooltip-tip2 " href="/category" title="评论列表"><i class="icon-media-record"></i><span>评论列表</span></a>
+                                <a class="tooltip-tip2 " href="/comment" title="评论列表"><i class="icon-media-record"></i><span>评论列表</span></a>
                             </li>
 
                         </ul>

@@ -202,6 +202,7 @@ class CommentController extends Controller
     public function index()
     {
         //
+        return view('Admin.Comment.index');
     }
 
     /**
