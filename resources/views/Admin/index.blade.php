@@ -72,7 +72,7 @@
                     最近访客
                 </div>
                 <div class="body-nest" id="header">
-                    <ul class="ds-recent-visitors"></ul>
+                    <ul class="ds-recent-visitors" data-num-items="10000" ></ul>
                     <!--多说js加载开始，一个页面只需要加载一次 -->
                     <script type="text/javascript">
                         var duoshuoQuery = {short_name:
