@@ -8,8 +8,10 @@
 @section('pageName','首页')
 
 @section('content')
+<div class="row">
 
-        <div style="width: 40%">
+
+        <div class="col-sm-4">
             <ul class="list-group">
                 <li class="list-group-item text-left">
                     <span class="entypo-user"></span>&nbsp;&nbsp;{{\Illuminate\Support\Facades\Auth::user()->name}}</li>
@@ -63,8 +65,42 @@
             </ul>
 
         </div>
+        <div class="col-sm-6">
 
+            <div class="nest" id="headerClose">
+                <div class="title-alt">
+                    最近访客
+                </div>
+                <div class="body-nest" id="header">
+                    <ul class="ds-recent-visitors"></ul>
+                    <!--多说js加载开始，一个页面只需要加载一次 -->
+                    <script type="text/javascript">
+                        var duoshuoQuery = {short_name:
+                            <?php
+                            if ($_SERVER['SERVER_NAME'] == 'www.iphpt.com') {
+                                echo "'iphptBlog'";
+                            } else {
+                                echo '"iphpt"';
+                            }
 
+                            ?>
+
+                        };
+                        (function() {
+                            var ds = document.createElement('script');
+                            ds.type = 'text/javascript';ds.async = true;
+                            ds.src = 'http://static.duoshuo.com/embed.js';
+                            ds.charset = 'UTF-8';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                        })();
+                    </script>
+                    <!--多说js加载结束，一个页面只需要加载一次 -->
+                </div>
+
+            </div>
+
+        </div>
+</div>
     @endsection
 
 @section('js')
