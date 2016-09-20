@@ -88,8 +88,9 @@
                     <li class="meridiem"></li>
                 </ul>
                 <ul id="nt-title">
-                    <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=10" width="300" height="25" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" ></iframe>
+                    {{--<iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=10" width="300" height="25" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" ></iframe>--}}
                     {{--<div>天气</div>--}}
+                    <iframe allowtransparency="true" frameborder="0" width="731" height="28" scrolling="no" src="https://tianqi.2345.com/plugin/widget/index.htm?s=3&z=1&t=0&v=0&d=3&bd=0&k=&f=&q=1&e=1&a=1&c=54511&w=731&h=28&align=left"></iframe>
                 </ul>
             </div>
 
