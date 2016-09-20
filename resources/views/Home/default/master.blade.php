@@ -213,7 +213,7 @@
             <p>
                 &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By 叶落山城. All Rights Reserved.
             </p>
-            {{--<p>Theme By <a href="http://go.kieran.top" target="_blank" style="color: #767D84">Kieran</a></p>--}}
+
         </div>
         <div class="social">
             <ul>
@@ -229,7 +229,7 @@
                 <li><a href="http://weibo.com/ylsc633?refer_flag=1001030101_&is_hot=1" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
 
             </ul>
-            <script src="http://s95.cnzz.com/z_stat.php?id=1256842383&web_id=1256842383" language="JavaScript"></script>
+            <script src="https://s95.cnzz.com/z_stat.php?id=1256842383&web_id=1256842383" language="JavaScript"></script>
 
         </div>
 
