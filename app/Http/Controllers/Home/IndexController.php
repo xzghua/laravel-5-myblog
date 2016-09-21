@@ -30,7 +30,7 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         //
-        $this->getBehavior($request);
+//        $this->getBehavior($request);
         $page = empty($request->get('page')) ? 1 : $request->get('page');
         if (Cache::tags(['paginate',$page])->get($page)) {
             $data['paginate'] = Cache::tags(['paginate',$page])->get($page);
@@ -58,7 +58,7 @@ class IndexController extends Controller
      */
     public function getDetail($id,Request $request)
     {
-        $this->getBehavior($request);
+//        $this->getBehavior($request);
         $data = $this->common();
         View::where('art_id',$id)->increment('view_num',1);
 
@@ -125,7 +125,7 @@ class IndexController extends Controller
      */
     public function getCategories($cate_name,Request $request)
     {
-        $this->getBehavior($request);
+//        $this->getBehavior($request);
 
         $data = $this->common();
         $data['artList'] = Category::where('cate_name',$cate_name)
@@ -142,7 +142,7 @@ class IndexController extends Controller
      */
     public function getTags($tag_name,Request $request)
     {
-        $this->getBehavior($request);
+//        $this->getBehavior($request);
 
         $data = $this->common();
         $data['artList'] = Tag::where('tag_name',$tag_name)
@@ -159,7 +159,7 @@ class IndexController extends Controller
      */
     public function getAbout(Request $request)
     {
-        $this->getBehavior($request);
+//        $this->getBehavior($request);
         $data = $this->common();
         return view('Home.'.$data['theme'].".about",$data);
     }
@@ -170,7 +170,7 @@ class IndexController extends Controller
      */
     public function getMonthArticle(Request $request)
     {
-        $this->getBehavior($request);
+//        $this->getBehavior($request);
         $data = $this->common();
         $article = Article::orderBy('created_at','desc')->get()->toArray();
 
