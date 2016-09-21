@@ -18,7 +18,7 @@
     <meta name="keywords" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['seo_key']}}" />
 
     <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="/Home/default/img/nice.png" type="image/ico">
+    <link rel="Shortcut Icon" href="https://odu38kv7q.qnssl.com/nice.png" type="image/ico">
 
 
     <link rel="stylesheet" href="/Home/default/css/all.css" media="screen" type="text/css">
