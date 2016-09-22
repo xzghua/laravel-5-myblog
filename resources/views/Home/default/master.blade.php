@@ -21,7 +21,7 @@
     <link rel="Shortcut Icon" href="https://odu38kv7q.qnssl.com/nice.png" type="image/ico">
 
 
-    <link rel="stylesheet" href="/Home/default/css/all.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="https://odu38kv7q.qnssl.com/all1.css" media="screen" type="text/css">
 
     <link rel="stylesheet" href="/Home/default/highlightjs/xcode.css" type="text/css">
 
@@ -46,8 +46,8 @@
     <![endif]-->
 
     <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
-    <script src="/Home/default/js/jquery-1.11.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/Home/default/js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="https://odu38kv7q.qnssl.com/jquery-1.11.1.min.js"></script>
+    {{--<script>window.jQuery || document.write('<script src="https://odu38kv7q.qnssl.com/jquery-1.11.1.min.js"><\/script>')</script>--}}
 
     <!-- Load these in the <head> for quicker IE8+ load times -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -145,7 +145,7 @@
             <!-- Nav logo -->
             <div class="logo">
                 <a href="/" title="iphpt" class="animsition-link">
-                    <img src="/Home/default/img/nice.png" alt="logo" width="35px;"/>
+                    <img src="https://odu38kv7q.qnssl.com/nice.png" alt="logo" width="35px;"/>
                 </a>
             </div>
             <!-- // Nav logo -->
