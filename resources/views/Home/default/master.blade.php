@@ -294,10 +294,7 @@
 
 </script>
 <script>
-    (function(){
-        var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6007602ca97769cfd1f7c0358edc7d59":"https://jspassport.ssl.qhimg.com/11.0.1.js?6007602ca97769cfd1f7c0358edc7d59";
-        document.write('<script src="' + src + '" id="sozz"><\/script>');
-    })();
+
 
     (function(){
         var bp = document.createElement('script');
