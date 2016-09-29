@@ -46,7 +46,7 @@
     <![endif]-->
 
     <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
-    <script src="https://odu38kv7q.qnssl.com/jquery-1.11.1.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     {{--<script>window.jQuery || document.write('<script src="https://odu38kv7q.qnssl.com/jquery-1.11.1.min.js"><\/script>')</script>--}}
 
     <!-- Load these in the <head> for quicker IE8+ load times -->
