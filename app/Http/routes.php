@@ -62,8 +62,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get("monthList",'Home\IndexController@getMonthArticle');
 
 
-    Route::get("testBehavior",'Home\IndexController@getBehavior');
-
-    //评论
-    Route::get('getComment','Admin\CommentController@getCallBackComment');
-    Route::post('postComment','Admin\CommentController@sync_log');
+//    Route::get("testBehavior",'Home\IndexController@getBehavior');
+//
+//    //评论
+//    Route::get('getComment','Admin\CommentController@getCallBackComment');
+//    Route::post('postComment','Admin\CommentController@sync_log');
