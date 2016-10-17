@@ -1,5 +1,5 @@
 @extends('Home.default.master')
-
+@section('title',$artList->cate_name.' --  category '."&nbsp;&nbsp;-&nbsp;&nbsp;")
 @section('content')
     <!-- ============================ Hero Image =========================== -->
     {{--顶部大图--}}

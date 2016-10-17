@@ -1,5 +1,5 @@
 @extends('Home.default.master')
-
+@section('title',$artList->tag_name.' --  tags '."&nbsp;&nbsp;-&nbsp;&nbsp;")
 @section('content')
     <!-- ============================ Hero Image =========================== -->
     {{--顶部大图--}}
