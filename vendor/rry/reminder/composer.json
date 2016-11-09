@@ -1,0 +1,22 @@
+{
+    "name": "rry/reminder",
+    "description": "A awesome message reminder build with toastr for laravel5.*",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RryLee",
+            "email": "rrylee1994@gmail.com"
+        }
+    ],
+	"require": {
+		"illuminate/support": "~5.0"
+	},
+    "autoload": {
+        "psr-4": {
+            "Rry\\Reminder\\": "src/"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    }
+}
