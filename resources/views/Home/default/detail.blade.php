@@ -52,36 +52,33 @@
 
     <div class="duoshuo " style="text-align: center">
 
-        <div class="share-component" data-disabled="twitter,facebook" data-mobile-sites="weibo,qq,qzone,tencent"></div>
+    <div id="container"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+        <style>
+            .gitment-container a {
+                border: none;
+            }
+            .comments {
+                margin: 60px 0 0;
+            }
+        </style>
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
 
+        var gitment = new Gitment({
+            id: "{{$article['id']}}", // 可选。默认为 location.href
 
-        <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="{{$article['id']}}" data-title="{{$article['title']}}" data-url="{{$_SERVER['SERVER_NAME']}}/detail/{{$article['id']}}"></div>
-    </div>
-        <!-- 多说评论框 end -->
-        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-        <script type="text/javascript">
-            var duoshuoQuery = {short_name:
-                <?php
-                        if ($_SERVER['SERVER_NAME'] == 'www.iphpt.com') {
-                            echo "'iphptBlog'";
-                        } else {
-                            echo '"iphpt"';
-                        }
+            owner: 'Yela528',
 
-                        ?>
-            };
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0]
-                || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-        </script>
-        <!-- 多说公共JS代码 end -->
-
+            title: "{{$article['title']}}",
+            repo: 'xiaohei',
+            oauth: {
+                client_id: '632e3a21bb0cee5e4518',
+                client_secret: '8e0ac6db5b9c3174df17d34d88d7a85950ea8096',
+            },
+        })
+        gitment.render('container')
+    </script>
     </div>
 @endsection
 
