@@ -1,3 +1,9 @@
+### 2017年04月11日添
+
+- 由于`多说`要关闭！而且最近恶意留言很多！所以现在改用`github`的`issue`的系统，所以部属以后，请修改下面位置的 里面的`gitment` 进行修改！[文档位置](https://imsun.net/posts/gitment-introduction/) 
+> laravel-5-blog ==> resource ==> views ==> Home ==> default ==> detail.blade.php 
+
+
 ### 2017年03月20日新添
 
 - 博客静态资源放在7牛上,图片虽然压缩过,不过还是有点大..所以首页打开有点慢...安装后,一定要安装redis,文章内容和每个页面全部缓存在 `redis` 里,所以写完文章 请点击后台的刷新缓存按钮,否则可能不显示..
