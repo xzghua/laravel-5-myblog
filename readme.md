@@ -1,5 +1,6 @@
 ### 2017年04月11日添
 
+
 - 由于`多说`要关闭！而且最近恶意留言很多！所以现在改用`github`的`issue`的系统，所以部属以后，请修改下面位置的 里面的`gitment` 进行修改！[文档位置](https://imsun.net/posts/gitment-introduction/) 
 > laravel-5-blog ==> resource ==> views ==> Home ==> default ==> detail.blade.php 
 
