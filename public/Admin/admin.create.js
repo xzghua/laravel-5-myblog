@@ -81,7 +81,7 @@ var articleForm = $('.articleForm').validate({
     rules:{
         title:{
             required:true,
-            maxlength:50
+            maxlength:100
         },
         category:{
             required:true,
