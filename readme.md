@@ -1,3 +1,7 @@
+### 2018-03-05添加
+
+本版本目前已停更(主要还是懒啊),因为要熟悉`Golang`,打算换个版本试试,地址:[beego-postgres-blog](https://github.com/Yela528/beego-postgres-blog)
+
 ### 2017年04月11日添
 
 
