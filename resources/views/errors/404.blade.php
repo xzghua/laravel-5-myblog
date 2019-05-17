@@ -33,7 +33,6 @@
 </div>
 
 <!-- 全局js -->
-<script type="text/javascript" src="/Admin/assets/js/jquery.min.js"></script>
 
 <script type="text/javascript" src="/Admin/assets/js/bootstrap.js"></script>
 

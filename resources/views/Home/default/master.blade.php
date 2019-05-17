@@ -18,10 +18,10 @@
     <meta name="keywords" content="{{empty($seo) ? '叶落山城秋的个人技术博客' :  $seo['seo_key']}}" />
 
     <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="https://odu38kv7q.qnssl.com/nice.png" type="image/ico">
+    <link rel="Shortcut Icon" href="http://static.iphpt.com/nice.png" type="image/ico">
 
 
-    <link rel="stylesheet" href="https://odu38kv7q.qnssl.com/all1.css" media="screen" type="text/css">
+    <link rel="stylesheet" href="http://static.iphpt.com/all.css" media="screen" type="text/css">
 
     <link rel="stylesheet" href="/Home/default/highlightjs/xcode.css" type="text/css">
 
@@ -145,7 +145,7 @@
             <!-- Nav logo -->
             <div class="logo">
                 <a href="/" title="iphpt" class="animsition-link">
-                    <img src="https://odu38kv7q.qnssl.com/nice.png" alt="logo" width="35px;"/>
+                    <img src="http://static.iphpt.com/nice.png" alt="logo" width="35px;"/>
                 </a>
             </div>
             <!-- // Nav logo -->
